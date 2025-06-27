@@ -6,25 +6,28 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/26 22:32:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/06/27 00:06:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/Bureaucrat.hpp"
 #include "utils/TerminalColor.hpp"
 #include <cstdlib>
+#include <exception>
 #include <iostream>
 
 const int LINE_SIZE = 80;
 static void log(StrColor strColor, const std::string str);
 static void testBasicFunctionality();
 static void testGradeManipulation();
+static void testInvalidConstruction();
 
 int main() {
   log(GREEN, "=== BUREAUCRAT TESTING SUITE ===");
 
 	testBasicFunctionality();
   testGradeManipulation();
+  testInvalidConstruction();
 
   log(GREEN, "\n" + std::string(LINE_SIZE, '='));
 	log(GREEN, "ALL TESTS COMPLETED");
@@ -46,8 +49,7 @@ static void printTestSection(const std::string& title) {
 static void testBasicFunctionality() {
 	printTestSection("Basic Functionality");
 
-	try
-	{
+	try {
 		Bureaucrat daniel("Daniel Trigo", 42);
     std::cout << "Created bureaucrat: " << daniel << std::endl;
     std::cout << "Name: " << daniel.getName() << std::endl;
@@ -57,9 +59,8 @@ static void testBasicFunctionality() {
 
 		Bureaucrat defaultBureaucrat;
     std::cout << "Created bureaucrat: " << defaultBureaucrat << std::endl;
-	}
-	catch (const std::exception& e)
-	{
+	} catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
     log(RED, e.what());
 	}
 }
@@ -67,8 +68,7 @@ static void testBasicFunctionality() {
 static void testGradeManipulation() {
 	printTestSection("Grade Manipulation");
 
-	try
-	{
+	try {
 		Bureaucrat daniel("Daniel Trigo", 42);
     std::cout << "Initial state: " << daniel << std::endl;
 
@@ -80,9 +80,38 @@ static void testGradeManipulation() {
 
     daniel.decrementGrade();
     std::cout << "After decrement: " << daniel << std::endl;
-  }
-  catch (const std::exception& e)
-	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+  } catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
 	}
+}
+
+static void testInvalidConstruction() {
+  printTestSection("Invalid Construction");
+
+  try {
+    log(RESET, "Attempting to create bureaucrat with grade 0...");
+    Bureaucrat invalidHigh("Too High", 0);
+    log(RED, "Error: should have throw exception");
+  } catch (const Bureaucrat::GradeTooHighException& e) {
+    log(ORANGE, "Correctly caught GradeTooHighException:");
+    log(RED, e.what());
+  } catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
+  }
+
+  std::cout << std::endl;
+
+  try {
+    log(RESET, "Attempting to create bureaucrat with grade 151...");
+    Bureaucrat invalidHigh("Too Low", 151);
+    log(RED, "Error: should have throw exception");
+  } catch (const Bureaucrat::GradeTooLowException& e) {
+    log(ORANGE, "Correctly caught GradeTooLowException:");
+    log(RED, e.what());
+  } catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
+  }
 }
