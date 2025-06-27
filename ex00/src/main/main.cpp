@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/27 00:27:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/06/27 00:42:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void testBasicFunctionality();
 static void testGradeManipulation();
 static void testInvalidConstruction();
 static void testBoundaryConditions();
+static void testCopyOperations();
 
 int main() {
   log(GREEN, "=== BUREAUCRAT TESTING SUITE ===");
@@ -30,6 +31,7 @@ int main() {
   testGradeManipulation();
   testInvalidConstruction();
   testBoundaryConditions();
+  testCopyOperations();
 
   log(GREEN, "\n" + std::string(LINE_SIZE, '='));
 	log(GREEN, "ALL TESTS COMPLETED");
@@ -148,6 +150,35 @@ static void testBoundaryConditions() {
     log(RED, e.what());
   } catch (const std::exception& e) {
     log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
+  }
+}
+
+static void testCopyOperations() {
+  printTestSection("Copy Operations");
+
+  try {
+    Bureaucrat original("Original", 42);
+    std::cout << "Original: " << original << std::endl;
+
+    std::cout << std::endl;
+    Bureaucrat copy(original);
+    std::cout << "Copy constructed: " << copy << std::endl;
+
+    std::cout << std::endl;
+    Bureaucrat assigned("Temporary", 111);
+    std::cout << "Before assignment: " << assigned << std::endl;
+		assigned = original;
+		std::cout << "After assignment: " << assigned << std::endl;
+
+    std::cout << std::endl;
+    original.incrementGrade();
+		std::cout << "After modifying original:" << std::endl;
+		std::cout << "  Original: " << original << std::endl;
+		std::cout << "  Copy: " << copy << std::endl;
+		std::cout << "  Assigned: " << assigned << std::endl;
+  } catch (const std::exception& e) {
+    log(ORANGE, "Expection caught:");
     log(RED, e.what());
   }
 }
