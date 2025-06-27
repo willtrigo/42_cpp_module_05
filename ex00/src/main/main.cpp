@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/25 17:28:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/06/26 22:32:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 const int LINE_SIZE = 80;
 static void log(StrColor strColor, const std::string str);
 static void testBasicFunctionality();
+static void testGradeManipulation();
 
 int main() {
   log(GREEN, "=== BUREAUCRAT TESTING SUITE ===");
 
 	testBasicFunctionality();
+  testGradeManipulation();
 
   log(GREEN, "\n" + std::string(LINE_SIZE, '='));
 	log(GREEN, "ALL TESTS COMPLETED");
@@ -59,5 +61,28 @@ static void testBasicFunctionality() {
 	catch (const std::exception& e)
 	{
     log(RED, e.what());
+	}
+}
+
+static void testGradeManipulation() {
+	printTestSection("Grade Manipulation");
+
+	try
+	{
+		Bureaucrat daniel("Daniel Trigo", 42);
+    std::cout << "Initial state: " << daniel << std::endl;
+
+    daniel.incrementGrade();
+    std::cout << "After increment: " << daniel << std::endl;
+
+    daniel.decrementGrade();
+    std::cout << "After decrement: " << daniel << std::endl;
+
+    daniel.decrementGrade();
+    std::cout << "After decrement: " << daniel << std::endl;
+  }
+  catch (const std::exception& e)
+	{
+		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
 }
