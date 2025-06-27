@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/27 00:06:05 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/06/27 00:27:09 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void log(StrColor strColor, const std::string str);
 static void testBasicFunctionality();
 static void testGradeManipulation();
 static void testInvalidConstruction();
+static void testBoundaryConditions();
 
 int main() {
   log(GREEN, "=== BUREAUCRAT TESTING SUITE ===");
@@ -28,6 +29,7 @@ int main() {
 	testBasicFunctionality();
   testGradeManipulation();
   testInvalidConstruction();
+  testBoundaryConditions();
 
   log(GREEN, "\n" + std::string(LINE_SIZE, '='));
 	log(GREEN, "ALL TESTS COMPLETED");
@@ -105,7 +107,41 @@ static void testInvalidConstruction() {
 
   try {
     log(RESET, "Attempting to create bureaucrat with grade 151...");
-    Bureaucrat invalidHigh("Too Low", 151);
+    Bureaucrat invalidLow("Too Low", 151);
+    log(RED, "Error: should have throw exception");
+  } catch (const Bureaucrat::GradeTooLowException& e) {
+    log(ORANGE, "Correctly caught GradeTooLowException:");
+    log(RED, e.what());
+  } catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
+  }
+}
+
+static void testBoundaryConditions() {
+  printTestSection("Boundary Conditions");
+
+  try {
+    Bureaucrat topBureaucrat("The Boss", 1);
+    std::cout << "Created bureaucrat: " << topBureaucrat << std::endl;
+    log(RESET, "Attempting to incrementgrade 1...");
+    topBureaucrat.incrementGrade();
+    log(RED, "Error: should have throw exception");
+  } catch (const Bureaucrat::GradeTooHighException& e) {
+    log(ORANGE, "Correctly caught GradeTooHighException:");
+    log(RED, e.what());
+  } catch (const std::exception& e) {
+    log(ORANGE, "Caught unexpected exception:");
+    log(RED, e.what());
+  }
+
+  std::cout << std::endl;
+
+  try {
+    Bureaucrat bottomBureaucrat("Intern", 150);
+    std::cout << "Created bureaucrat: " << bottomBureaucrat << std::endl;
+    log(RESET, "Attempting to decrement 150...");
+    bottomBureaucrat.decrementGrade();
     log(RED, "Error: should have throw exception");
   } catch (const Bureaucrat::GradeTooLowException& e) {
     log(ORANGE, "Correctly caught GradeTooLowException:");
