@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 21:51:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/26 23:52:16 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/06/27 00:25:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-  validateGrade(m_grade + 1);
+  validateGrade(m_grade - 1);
   --m_grade;
 }
 
 void Bureaucrat::decrementGrade() {
-  validateGrade(m_grade - 1);
+  validateGrade(m_grade + 1);
   ++m_grade;
 }
 
