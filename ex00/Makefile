@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 15:48:34 by dande-je          #+#    #+#              #
-#    Updated: 2025/06/25 14:25:12 by dande-je         ###   ########.fr        #
+#    Updated: 2025/06/29 14:51:21 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS_DIR                        := src/
 SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
 SRCS_CORE_DIR                   := $(SRCS_DIR)core/
 SRCS_EXCEPTIONS_DIR             := $(SRCS_CORE_DIR)exceptions/
+SRCS_TEST_DIR                   := $(SRCS_DIR)test/
 SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
 INCS                            := src/
 BIN_DIR                         := bin/
@@ -54,6 +55,9 @@ SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_CORE_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_EXCEPTIONS_DIR), GradeException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestEx00.cpp \
+								   TestHelpers.cpp \
+								   TestSuite.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \
 								   TerminalColorUtility.cpp)
 

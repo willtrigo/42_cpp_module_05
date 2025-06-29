@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   TestSuite.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:37:37 by dande-je         ###   ########.fr       */
+/*   Created: 2025/06/29 14:00:00 by dande-je          #+#    #+#             */
+/*   Updated: 2025/06/29 14:48:07 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestSuite.hpp"
-#include <cstdlib>
+#include "test/TestEx00.hpp"
 
-int main() {
-  runTests();
-  return EXIT_SUCCESS;
+void runTests() {
+  runAllEx00Tests();
 }
-

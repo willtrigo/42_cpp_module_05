@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   TestSuite.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:37:37 by dande-je         ###   ########.fr       */
+/*   Created: 2025/06/29 13:59:57 by dande-je          #+#    #+#             */
+/*   Updated: 2025/06/29 14:37:52 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestSuite.hpp"
-#include <cstdlib>
+#ifndef TESTALL_HPP
+#define TESTALL_HPP
 
-int main() {
-  runTests();
-  return EXIT_SUCCESS;
-}
+void runTests();
 
+#endif // TESTALL_HPP

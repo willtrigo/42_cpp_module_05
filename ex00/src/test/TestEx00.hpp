@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   TestEx00.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:37:37 by dande-je         ###   ########.fr       */
+/*   Created: 2025/06/29 14:43:22 by dande-je          #+#    #+#             */
+/*   Updated: 2025/06/29 14:45:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestSuite.hpp"
-#include <cstdlib>
+#ifndef TESTEX00_HPP
+#define TESTEX00_HPP
 
-int main() {
-  runTests();
-  return EXIT_SUCCESS;
-}
+void runAllEx00Tests();
 
+#endif // TESTEX00_HPP

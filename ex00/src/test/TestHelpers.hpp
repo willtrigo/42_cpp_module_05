@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   TestHelpers.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:37:37 by dande-je         ###   ########.fr       */
+/*   Created: 2025/06/29 14:27:27 by dande-je          #+#    #+#             */
+/*   Updated: 2025/06/29 14:35:21 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestSuite.hpp"
-#include <cstdlib>
+#ifndef TESTSUITE_HPP
+#define TESTSUITE_HPP
 
-int main() {
-  runTests();
-  return EXIT_SUCCESS;
-}
+#include "utils/TerminalColor.hpp"
 
+static const int TEST_LINE_SIZE = 80;
+
+void testHelperLog(StrColor strColor, const std::string str);
+void testHelperPrintSection(const std::string& title);
+
+#endif // TESTSUITE_HPP
