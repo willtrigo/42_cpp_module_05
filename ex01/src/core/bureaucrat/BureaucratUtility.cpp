@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BureaucratUtility.cpp                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/30 15:33:44 by dande-je          #+#    #+#             */
+/*   Updated: 2025/06/30 15:35:00 by dande-je         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "core/bureaucrat/Bureaucrat.hpp"
+#include <iostream>
+#include <ostream>
+#include <string>
+
+const int Bureaucrat::HIGHEST_GRADE = 1;
+const int Bureaucrat::LOWEST_GRADE = 150;
+
+std::string Bureaucrat::getName() const {
+  return m_name;
+}
+
+int Bureaucrat::getGrade() const {
+  return m_grade;
+}
+
+void Bureaucrat::incrementGrade() {
+  validateGrade(m_grade - 1);
+  --m_grade;
+}
+
+void Bureaucrat::decrementGrade() {
+  validateGrade(m_grade + 1);
+  ++m_grade;
+}
+
+void Bureaucrat::validateGrade(int grade) const {
+  if (grade < HIGHEST_GRADE)
+  {
+    throw GradeTooHighException();
+  }
+  else if (grade > LOWEST_GRADE)
+  {
+    throw GradeTooLowException();
+  }
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
+  return os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+}
