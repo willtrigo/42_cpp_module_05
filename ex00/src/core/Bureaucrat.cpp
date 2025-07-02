@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 21:51:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/25 17:17:34 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:24:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
   : m_name(name),
     m_grade(grade) {
-  validateGrade(m_grade);
+  validateGrade(this->m_grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
