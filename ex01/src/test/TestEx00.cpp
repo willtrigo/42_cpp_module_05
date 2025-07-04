@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/30 15:35:33 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:25:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,11 @@ static void testBoundaryConditions();
 static void testCopyOperations();
 
 void runAllEx00Tests() {
-  testHelperLog(GREEN, "=== BUREAUCRAT TESTING SUITE ===");
-
 	testBasicFunctionality();
   testGradeManipulation();
   testInvalidConstruction();
   testBoundaryConditions();
   testCopyOperations();
-
-  testHelperLog(GREEN, "\n" + std::string(TEST_LINE_SIZE, '='));
-	testHelperLog(GREEN, "ALL TESTS COMPLETED");
-  testHelperLog(GREEN, std::string(TEST_LINE_SIZE, '='));
 }
 
 static void testBasicFunctionality() {

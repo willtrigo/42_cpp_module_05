@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 15:09:19 by dande-je          #+#    #+#              #
-#    Updated: 2025/06/30 15:26:38 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/04 20:37:40 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRCS_FILES                      += $(addprefix $(SRCS_FORM_DIR), Form.cpp \
 								   FormUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormGradeException.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestEx00.cpp \
+								   TestEx01.cpp \
 								   TestHelpers.cpp \
 								   TestSuite.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \

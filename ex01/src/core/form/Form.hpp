@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:38:26 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 20:09:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/04 20:38:43 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ class Form {
 
   void validateForm(int gradeToSign, int gradeToExecute) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif // FORM_HPP
