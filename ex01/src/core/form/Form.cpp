@@ -6,15 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:36:00 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/02 16:53:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:59:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/form/Form.hpp"
 
 const std::string Form::DEFAULT_FORM_NAME = "Unamed Form";
-const int Form::DEFAULT_GRADE_TO_EXECUTE = 150;
-const int Form::DEFAULT_GRADE_TO_SIGN = 150;
 
 Form::Form()
   : m_name(DEFAULT_FORM_NAME),
@@ -27,7 +25,7 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
     m_gradeToSign(gradeToSign),
     m_gradeToExecute(gradeToExecute),
     m_signed(false) {
-
+   validateForm(this->m_gradeToSign, this->m_gradeToExecute);
 }
 
 Form::Form(const Form& other)
