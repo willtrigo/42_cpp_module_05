@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 21:51:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/02 14:25:14 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:20:06 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <iostream>
 #include <ostream>
 #include <string>
-
-const int Bureaucrat::HIGHEST_GRADE = 1;
-const int Bureaucrat::LOWEST_GRADE = 150;
 
 std::string Bureaucrat::getName() const {
   return this->m_name;
@@ -27,12 +24,12 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-  validateGrade(this->m_grade - 1);
+  validateGrade(this->m_grade - GRADE_SHIFT_AMOUNT);
   --this->m_grade;
 }
 
 void Bureaucrat::decrementGrade() {
-  validateGrade(this->m_grade + 1);
+  validateGrade(this->m_grade + GRADE_SHIFT_AMOUNT);
   ++this->m_grade;
 }
 

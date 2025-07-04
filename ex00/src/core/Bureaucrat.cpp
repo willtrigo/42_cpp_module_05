@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 21:51:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/02 14:24:08 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:07:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/Bureaucrat.hpp"
 
 const std::string Bureaucrat::DEFAULT_NAME = "Unnamed Bureaucrat";
-const int Bureaucrat::DEFAULT_GRADE = 150;
 
 Bureaucrat::Bureaucrat()
   : m_name(DEFAULT_NAME),
