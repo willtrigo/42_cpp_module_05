@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 20:25:53 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 10:00:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void runAllEx00Tests() {
 }
 
 static void testBasicFunctionality() {
-	testHelperPrintSection("Basic Functionality");
+	testHelperPrintSection(YELLOW, "Basic Functionality");
 
 	try {
 		Bureaucrat daniel("Daniel Trigo", 42);
@@ -50,7 +50,7 @@ static void testBasicFunctionality() {
 }
 
 static void testGradeManipulation() {
-	testHelperPrintSection("Grade Manipulation");
+	testHelperPrintSection(YELLOW, "Grade Manipulation");
 
 	try {
 		Bureaucrat daniel("Daniel Trigo", 42);
@@ -71,7 +71,7 @@ static void testGradeManipulation() {
 }
 
 static void testInvalidConstruction() {
-  testHelperPrintSection("Invalid Construction");
+  testHelperPrintSection(YELLOW, "Invalid Construction");
 
   try {
     testHelperLog(RESET, "Attempting to create bureaucrat with grade 0...");
@@ -101,7 +101,7 @@ static void testInvalidConstruction() {
 }
 
 static void testBoundaryConditions() {
-  testHelperPrintSection("Boundary Conditions");
+  testHelperPrintSection(YELLOW,"Boundary Conditions");
 
   try {
     Bureaucrat topBureaucrat("The Boss", 1);
@@ -135,7 +135,7 @@ static void testBoundaryConditions() {
 }
 
 static void testCopyOperations() {
-  testHelperPrintSection("Copy Operations");
+  testHelperPrintSection(YELLOW, "Copy Operations");
 
   try {
     Bureaucrat original("Original", 42);

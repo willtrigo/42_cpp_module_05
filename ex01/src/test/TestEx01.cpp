@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 20:40:47 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 10:14:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ void runAllEx01Tests() {
 }
 
 static void testBasicFormFunctionality() {
-	testHelperPrintSection("Basic Form Functionality");
+	testHelperPrintSection(PURPLE, "Basic Form Functionality");
 
 	try {
     Form taxForm("Tax Form", 50, 25);
-    std::cout << "Created " << taxForm << std::endl;
+    std::cout << "Created " << taxForm << std::endl << std::endl;
+    std::cout << "Func getName: " << taxForm.getName() << std::endl;
+    std::cout << "Func getGradeToSign: " << taxForm.getGradeToSign() << std::endl;
+    std::cout << "Func getGradeToExecute: " << taxForm.getGradeToExecute() << std::endl;
+    std::cout << "Func getIsSigned: " << taxForm.isSigned() << std::endl;
 	} catch (const std::exception& e) {
     testHelperLog(ORANGE, "Caught unexpected exception:");
     testHelperLog(RED, e.what());
