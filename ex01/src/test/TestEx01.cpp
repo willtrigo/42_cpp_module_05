@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/05 10:14:33 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 10:55:38 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 #include <iostream>
 
 static void testBasicFormFunctionality();
-// static void testGradeManipulation();
-// static void testInvalidConstruction();
+static void testInvalidFormConstruction();
 // static void testBoundaryConditions();
 // static void testCopyOperations();
 
 void runAllEx01Tests() {
 	testBasicFormFunctionality();
-  // testGradeManipulation();
-  // testInvalidConstruction();
+  testInvalidFormConstruction();
   // testBoundaryConditions();
   // testCopyOperations();
 }
@@ -48,56 +46,39 @@ static void testBasicFormFunctionality() {
 }
 
 
-// 	testHelperPrintSection("Grade Manipulation");
-//
-// 	try {
-// 		Bureaucrat daniel("Daniel Trigo", 42);
-//     std::cout << "Initial state: " << daniel << std::endl;
-//
-//     daniel.incrementGrade();
-//     std::cout << "After increment: " << daniel << std::endl;
-//
-//     daniel.decrementGrade();
-//     std::cout << "After decrement: " << daniel << std::endl;
-//
-//     daniel.decrementGrade();
-//     std::cout << "After decrement: " << daniel << std::endl;
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Caught unexpected exception:");
-//     testHelperLog(RED, e.what());
-// 	}
-// }
-//
-// static void testInvalidConstruction() {
-//   testHelperPrintSection("Invalid Construction");
-//
-//   try {
-//     testHelperLog(RESET, "Attempting to create bureaucrat with grade 0...");
-//     Bureaucrat invalidHigh("Too High", 0);
-//     testHelperLog(RED, "Error: should have throw exception");
-//   } catch (const Bureaucrat::GradeTooHighException& e) {
-//     testHelperLog(ORANGE, "Correctly caught GradeTooHighException:");
-//     testHelperLog(RED, e.what());
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Caught unexpected exception:");
-//     testHelperLog(RED, e.what());
-//   }
-//
-//   std::cout << std::endl;
-//
-//   try {
-//     testHelperLog(RESET, "Attempting to create bureaucrat with grade 151...");
-//     Bureaucrat invalidLow("Too Low", 151);
-//     testHelperLog(RED, "Error: should have throw exception");
-//   } catch (const Bureaucrat::GradeTooLowException& e) {
-//     testHelperLog(ORANGE, "Correctly caught GradeTooLowException:");
-//     testHelperLog(RED, e.what());
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Caught unexpected exception:");
-//     testHelperLog(RED, e.what());
-//   }
-// }
-//
+static void testInvalidFormConstruction() {
+  testHelperPrintSection(PURPLE, "Invalid Form Construction");
+
+  try {
+    testHelperLog(RESET, "Attempting to create form with sign grade 0...");
+    Form invalidForm("Invalid Sign", 0, 50);
+    testHelperLog(RED, "Error: should have throw exception");
+  } catch (const Form::GradeTooHighException& e) {
+    testHelperLog(ORANGE, "Correctly caught GradeTooHighException:");
+    testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+
+  std::cout << std::endl;
+
+  try {
+    testHelperLog(RESET, "Attempting to create form with execute grade 0...");
+    Form invalidForm("Invalid Sign", 50, 0);
+    testHelperLog(RED, "Error: should have throw exception");
+  } catch (const Form::GradeTooHighException& e) {
+    testHelperLog(ORANGE, "Correctly caught GradeTooHighException:");
+    testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+
+  std::cout << std::endl;
+
+}
+
 // static void testBoundaryConditions() {
 //   testHelperPrintSection("Boundary Conditions");
 //
