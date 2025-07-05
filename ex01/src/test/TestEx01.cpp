@@ -6,11 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/05 10:55:38 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:41:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "core/bureaucrat/Bureaucrat.hpp"
+#include "core/bureaucrat/Bureaucrat.hpp"
 #include "core/form/Form.hpp"
 #include "test/TestEx01.hpp"
 #include "test/TestHelpers.hpp"
@@ -19,13 +19,13 @@
 
 static void testBasicFormFunctionality();
 static void testInvalidFormConstruction();
-// static void testBoundaryConditions();
+static void testSuccessfulFormSigning();
 // static void testCopyOperations();
 
 void runAllEx01Tests() {
 	testBasicFormFunctionality();
   testInvalidFormConstruction();
-  // testBoundaryConditions();
+  testSuccessfulFormSigning();
   // testCopyOperations();
 }
 
@@ -77,42 +77,56 @@ static void testInvalidFormConstruction() {
 
   std::cout << std::endl;
 
+  try {
+    testHelperLog(RESET, "Attempting to create form with sign grade 151...");
+    Form invalidForm("Invalid Sign", 151, 50);
+    testHelperLog(RED, "Error: should have throw exception");
+  } catch (const Form::GradeTooLowException& e) {
+    testHelperLog(ORANGE, "Correctly caught GradeTooLowException:");
+    testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+
+  std::cout << std::endl;
+
+  try {
+    testHelperLog(RESET, "Attempting to create form with execute grade 151...");
+    Form invalidForm("Invalid Sign", 50, 151);
+    testHelperLog(RED, "Error: should have throw exception");
+  } catch (const Form::GradeTooLowException& e) {
+    testHelperLog(ORANGE, "Correctly caught GradeTooLowhException:");
+    testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
 }
 
-// static void testBoundaryConditions() {
-//   testHelperPrintSection("Boundary Conditions");
-//
-//   try {
-//     Bureaucrat topBureaucrat("The Boss", 1);
-//     std::cout << "Created bureaucrat: " << topBureaucrat << std::endl;
-//     testHelperLog(RESET, "Attempting to incrementgrade 1...");
-//     topBureaucrat.incrementGrade();
-//     testHelperLog(RED, "Error: should have throw exception");
-//   } catch (const Bureaucrat::GradeTooHighException& e) {
-//     testHelperLog(ORANGE, "Correctly caught GradeTooHighException:");
-//     testHelperLog(RED, e.what());
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Caught unexpected exception:");
-//     testHelperLog(RED, e.what());
-//   }
-//
-//   std::cout << std::endl;
-//
-//   try {
-//     Bureaucrat bottomBureaucrat("Intern", 150);
-//     std::cout << "Created bureaucrat: " << bottomBureaucrat << std::endl;
-//     testHelperLog(RESET, "Attempting to decrement 150...");
-//     bottomBureaucrat.decrementGrade();
-//     testHelperLog(RED, "Error: should have throw exception");
-//   } catch (const Bureaucrat::GradeTooLowException& e) {
-//     testHelperLog(ORANGE, "Correctly caught GradeTooLowException:");
-//     testHelperLog(RED, e.what());
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Caught unexpected exception:");
-//     testHelperLog(RED, e.what());
-//   }
-// }
-//
+static void testSuccessfulFormSigning() {
+  testHelperPrintSection(PURPLE, "Successful Form Signing");
+
+  try {
+    Form importantForm("Important Document", 100, 42);
+    Bureaucrat manager("Manager", 42);
+
+    std::cout << "Before signing:" << std::endl;
+    std::cout << "  " << importantForm << std::endl;
+    std::cout << "  " << manager << std::endl;
+    std::cout << std::endl;
+
+    importantForm.beSigned(manager);
+    std::cout << std::endl;
+
+    std::cout << "After signing:" << std::endl;
+    std::cout << "  " << importantForm << std::endl;
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+}
+
 // static void testCopyOperations() {
 //   testHelperPrintSection("Copy Operations");
 //

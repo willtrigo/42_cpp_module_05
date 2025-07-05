@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:38:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 20:22:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 20:42:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void Form::validateForm(int gradeToSign, int gradeToExecute) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-  return os << "Form: " << form.getName() << std::endl
-            << "Grade to Sign: " << form.getGradeToSign() << std::endl
-            << "Grade to Execute: " << form.getGradeToExecute() << std::endl
+  return os << "Form, " << form.getName() << ", "
+            << "Grade to Sign: " << form.getGradeToSign() << ", "
+            << "Grade to Execute: " << form.getGradeToExecute() << ", "
             << "Status: " << (form.isSigned() ? "Signed" : "Unsigned");
 }
