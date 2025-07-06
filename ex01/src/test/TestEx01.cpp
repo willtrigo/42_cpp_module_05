@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/05 20:41:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/05 21:39:56 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 static void testBasicFormFunctionality();
 static void testInvalidFormConstruction();
 static void testSuccessfulFormSigning();
-// static void testCopyOperations();
+static void testInsufficientGradeToSigning();
+static void testAlreadySignedForm();
 
 void runAllEx01Tests() {
 	testBasicFormFunctionality();
   testInvalidFormConstruction();
   testSuccessfulFormSigning();
-  // testCopyOperations();
+  testInsufficientGradeToSigning();
+  testAlreadySignedForm();
 }
 
 static void testBasicFormFunctionality() {
@@ -127,31 +129,29 @@ static void testSuccessfulFormSigning() {
   }
 }
 
-// static void testCopyOperations() {
-//   testHelperPrintSection("Copy Operations");
-//
-//   try {
-//     Bureaucrat original("Original", 42);
-//     std::cout << "Original: " << original << std::endl;
-//
-//     std::cout << std::endl;
-//     Bureaucrat copy(original);
-//     std::cout << "Copy constructed: " << copy << std::endl;
-//
-//     std::cout << std::endl;
-//     Bureaucrat assigned("Temporary", 111);
-//     std::cout << "Before assignment: " << assigned << std::endl;
-// 		assigned = original;
-// 		std::cout << "After assignment: " << assigned << std::endl;
-//
-//     std::cout << std::endl;
-//     original.incrementGrade();
-// 		std::cout << "After modifying original:" << std::endl;
-// 		std::cout << "  Original: " << original << std::endl;
-// 		std::cout << "  Copy: " << copy << std::endl;
-// 		std::cout << "  Assigned: " << assigned << std::endl;
-//   } catch (const std::exception& e) {
-//     testHelperLog(ORANGE, "Expection caught:");
-//     testHelperLog(RED, e.what());
-//   }
-// }
+static void testInsufficientGradeToSigning() {
+  testHelperPrintSection(PURPLE, "Insufficient Grade to Signing");
+
+  try {
+    Form importantForm("Important Document", 42, 2);
+    Bureaucrat intern("Intern", 145);
+
+    std::cout << "Before signing:" << std::endl;
+    std::cout << "  " << importantForm << std::endl;
+    std::cout << "  " << intern << std::endl;
+    std::cout << std::endl;
+
+    importantForm.beSigned(intern);
+    std::cout << std::endl;
+
+    std::cout << "After signing:" << std::endl;
+    std::cout << "  " << importantForm << std::endl;
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+}
+
+static void testAlreadySignedForm() {
+  testHelperPrintSection(PURPLE, "Already Signed Form");
+}
