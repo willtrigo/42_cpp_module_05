@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:28:53 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/30 15:29:03 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/06 14:39:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,3 @@ int main() {
   runTests();
   return EXIT_SUCCESS;
 }
-
