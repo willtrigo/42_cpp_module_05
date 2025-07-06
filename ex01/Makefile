@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 15:09:19 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/04 20:37:40 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/06 14:48:09 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,10 @@ NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratGradeException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_FORM_DIR), Form.cpp \
 								   FormUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormGradeException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormException.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestEx00.cpp \
 								   TestEx01.cpp \
 								   TestHelpers.cpp \
