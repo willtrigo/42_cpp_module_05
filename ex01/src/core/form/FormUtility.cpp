@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:38:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/05 20:42:26 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/06 11:55:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ bool Form::isSigned() const {
 void Form::beSigned(Bureaucrat& bureaucrat) {
   if (bureaucrat.getGrade() > this->m_gradeToSign) {
     throw Form::GradeTooLowException();
+  }
+  if (this->m_signed) {
+    throw Form::FormSignedException();
   }
   this->m_signed = true;
   std::cout << "Bureaucrat " << bureaucrat.getName()

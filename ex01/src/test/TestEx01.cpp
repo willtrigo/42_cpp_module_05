@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/05 21:39:56 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/06 11:54:52 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,4 +154,34 @@ static void testInsufficientGradeToSigning() {
 
 static void testAlreadySignedForm() {
   testHelperPrintSection(PURPLE, "Already Signed Form");
+
+  try {
+    Form contract("Contract", 42, 30);
+    Bureaucrat supervisor("supervisor", 42);
+    Bureaucrat director("Director", 21);
+
+    std::cout << "Initial state:" << std::endl;
+    std::cout << "  " << contract << std::endl;
+
+    std::cout << std::endl;
+
+    contract.beSigned(supervisor);
+
+    std::cout << std::endl;
+
+    std::cout << "After first signing:" << std::endl;
+    std::cout << "  " << contract << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Attempting second signing..." << std::endl;
+    contract.beSigned(director);
+    testHelperLog(RED, "Error: should have throw exception");
+  } catch (const Form::FormSignedException& e) {
+    testHelperLog(ORANGE, "Correctly caught FormSignedException:");
+    testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
 }
