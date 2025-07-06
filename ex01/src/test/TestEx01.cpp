@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:29:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 11:54:52 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/06 12:19:49 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "test/TestEx01.hpp"
 #include "test/TestHelpers.hpp"
 #include "utils/TerminalColor.hpp"
+#include <exception>
 #include <iostream>
 
 static void testBasicFormFunctionality();
@@ -22,6 +23,7 @@ static void testInvalidFormConstruction();
 static void testSuccessfulFormSigning();
 static void testInsufficientGradeToSigning();
 static void testAlreadySignedForm();
+static void testFormBoundaryConditions();
 
 void runAllEx01Tests() {
 	testBasicFormFunctionality();
@@ -29,6 +31,7 @@ void runAllEx01Tests() {
   testSuccessfulFormSigning();
   testInsufficientGradeToSigning();
   testAlreadySignedForm();
+  testFormBoundaryConditions();
 }
 
 static void testBasicFormFunctionality() {
@@ -142,6 +145,7 @@ static void testInsufficientGradeToSigning() {
     std::cout << std::endl;
 
     importantForm.beSigned(intern);
+
     std::cout << std::endl;
 
     std::cout << "After signing:" << std::endl;
@@ -180,6 +184,41 @@ static void testAlreadySignedForm() {
   } catch (const Form::FormSignedException& e) {
     testHelperLog(ORANGE, "Correctly caught FormSignedException:");
     testHelperLog(RED, e.what());
+  } catch (const std::exception& e) {
+    testHelperLog(ORANGE, "Caught unexpected exception:");
+    testHelperLog(RED, e.what());
+  }
+}
+
+static void testFormBoundaryConditions() {
+  testHelperPrintSection(PURPLE, "Form Boundary Conditions");
+
+  try {
+    Form minForm("Min Form", 1, 1);
+    std::cout << "Created form with minimum grades: " << minForm << std::endl;
+
+    std::cout << std::endl;
+
+    Form maxForm("Max Form", 150, 150);
+    std::cout << "Created form with maximum grades: " << maxForm << std::endl;
+
+    std::cout << std::endl;
+
+    Bureaucrat exactGradeToTest("Exact Grade To Test", 42);
+    Form normalForm("Normal Form", 42, 42);
+
+    std::cout << "Testing exact grade boundary:" << std::endl;
+    std::cout << "  " << exactGradeToTest << std::endl;
+    std::cout << "  " << normalForm << std::endl;
+
+    std::cout << std::endl;
+
+    normalForm.beSigned(exactGradeToTest);
+
+    std::cout << std::endl;
+
+    std::cout << "After signing:" << std::endl;
+    std::cout << "  " << normalForm << std::endl;
   } catch (const std::exception& e) {
     testHelperLog(ORANGE, "Caught unexpected exception:");
     testHelperLog(RED, e.what());
