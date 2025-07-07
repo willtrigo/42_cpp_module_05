@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/06 16:00:23 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/07 19:31:50 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,22 @@ RESET                           := \033[0m
 #******************************************************************************#
 
 SRCS_DIR                        := src/
-SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
-SRCS_CORE_DIR                   := $(SRCS_DIR)core/
-SRCS_ENTITIES_DIR               := $(SRCS_CORE_DIR)entities/
-SRCS_ENTITIES_EXCEPTIONS_DIR    := $(SRCS_ENTITIES_DIR)exceptions/
-SRCS_FORMS_DIR                  := $(SRCS_CORE_DIR)forms/
-SRCS_SERVICES_DIR               := $(SRCS_CORE_DIR)services/
-SRCS_SERVICES_EXCEPTIONS_DIR    := $(SRCS_SERVICES_DIR)exceptions/
-SRCS_TEST_DIR                   := $(SRCS_DIR)test/
+SRCS_DOMAIN_DIR                 := $(SRCS_DIR)domain/
+SRCS_MODELS_DIR                 := $(SRCS_DOMAIN_DIR)models/
+SRCS_BUREAUCRAT_DIR             := $(SRCS_MODELS_DIR)bureaucrat/
+SRCS_BUREAUCRAT_EXCEPTIONS_DIR  := $(SRCS_BUREAUCRAT_DIR)exceptions/
+SRCS_FORM_DIR                   := $(SRCS_MODELS_DIR)form/
+SRCS_FORM_CREATIONS_DIR         := $(SRCS_FORM_DIR)creations/
+SRCS_SHRUBBERY_DIR              := $(SRCS_FORM_CREATIONS_DIR)shrubbery/
+SRCS_FORM_REQUESTS_DIR          := $(SRCS_FORM_DIR)requests/
+SRCS_PRESIDENTIAL_DIR           := $(SRCS_FORM_REQUESTS_DIR)presidential/
+SRCS_ROBOTOMY_DIR               := $(SRCS_FORM_REQUESTS_DIR)robotomy/
+SRCS_FORM_EXCEPTIONS_DIR        := $(SRCS_FORM_DIR)exceptions/
+SRCS_INTERFACES_DIR             := $(SRCS_DIR)interfaces/
+SRCS_CLI_DIR                    := $(SRCS_INTERFACES_DIR)cli/
+SRCS_TESTING_DIR                := $(SRCS_INTERFACES_DIR)testing/
 SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
+SRCS_LOGGING_DIR                := $(SRCS_UTILS_DIR)logging/
 INCS                            := src/
 BIN_DIR                         := bin/
 BUILD_DIR                       := build/
@@ -55,16 +62,22 @@ SLEEP                           := sleep 0.01
 NAME_OUTPUT                     = bureaucrat
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
-SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_ENTITIES_DIR), AForm.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_FORM_DIR), AForm.cpp \
 								   AFormUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_ENTITIES_EXCEPTIONS_DIR), AFormException.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_SERVICES_DIR), Bureaucrat.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_SHRUBBERY_DIR), ShrubberyCreationForm.cpp \
+								   ShrubberyCreationFormUtility.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_PRESIDENTIAL_DIR), PresidentialPardonForm.cpp \
+								   PresidentialPardonFormUtility.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_ROBOTOMY_DIR), RobotomyRequestForm.cpp \
+								   RobotomyRequestFormUtility.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_SERVICES_EXCEPTIONS_DIR), BureaucratException.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestHelpers.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestHelpers.cpp \
 								   TestSuite.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_LOGGING_DIR), TerminalColor.cpp \
 								   TerminalColorUtility.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)

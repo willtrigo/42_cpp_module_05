@@ -6,12 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:48:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 15:52:25 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:18:36 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestHelpers.hpp"
-#include "utils/TerminalColor.hpp"
+#include "interfaces/testing/TestHelpers.hpp"
+#include "utils/logging/TerminalColor.hpp"
 #include <iostream>
 
 void testHelperLog(StrColor strColor, const std::string str) {

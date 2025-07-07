@@ -6,14 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:48:18 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 15:52:12 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:18:20 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TESTSUITE_HPP
 #define TESTSUITE_HPP
 
-#include "utils/TerminalColor.hpp"
+#include "utils/logging/TerminalColor.hpp"
 
 static const int TEST_LINE_SIZE = 80;
 
