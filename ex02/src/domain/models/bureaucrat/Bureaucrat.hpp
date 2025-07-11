@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 18:31:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:20:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,5 @@ class Bureaucrat {
 
   void validateGrade(int grade) const;
 };
-
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);
 
 #endif // BUREAUCRAT_HPP
