@@ -6,14 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:38:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 11:55:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/11 21:42:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/bureaucrat/Bureaucrat.hpp"
 #include "core/form/Form.hpp"
 #include <iostream>
-#include <ostream>
 #include <string>
 
 std::string Form::getName() const {

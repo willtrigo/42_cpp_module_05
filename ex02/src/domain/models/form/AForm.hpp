@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 22:18:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/12 22:55:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ class AForm {
     virtual const char* what() const throw();
   };
 
+  class AFormExecutedException : public std::exception {
+   public:
+    virtual const char* what() const throw();
+  };
+
   explicit AForm(const std::string& name, int gradeToSign, int gradeToExecute);
   AForm(const AForm& other);
   virtual ~AForm();
@@ -48,12 +53,16 @@ class AForm {
   int getGradeToSign() const throw();
   int getGradeToExecute() const throw();
   bool isSigned() const throw();
+  bool isExecuted() const throw();
+  void setExecuted(AForm& aform);
 
   void beSigned(Bureaucrat& bureaucrat);
-  void execute(const Bureaucrat& bureaucrat) const;
+
+  void execute(const Bureaucrat& executor) const;
 
  protected:
   virtual void executeTask() const = 0;
+  bool m_executed;
 
  private:
   AForm();

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 22:44:06 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/12 22:35:13 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ FormPrinter& FormPrinter::operator=(const FormPrinter& other) {
 
 FormPrinter::~FormPrinter() {}
 
-void FormPrinter::print(std::ostream& os, const AForm& aform) {
+void FormPrinter::printForm(std::ostream& os, const AForm& aform) {
   os << "Form, " << aform.getName()
      << ", Grade to Sign: " << aform.getGradeToSign()
      << ", Grade to Execute: " << aform.getGradeToExecute()
@@ -41,4 +41,8 @@ void FormPrinter::printBeSigned(
   const AForm& aform) {
   os << "Bureaucrat " << bureaucrat.getName()
      << " signed form " << aform.getName() << std::endl;
+}
+
+void FormPrinter::printExecute(std::ostream& os, const std::string& str) {
+  os << str;
 }

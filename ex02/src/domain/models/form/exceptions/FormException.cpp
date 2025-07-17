@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:51:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 22:29:07 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/12 22:15:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,8 @@ const char* AForm::AFormSignedException::what() const throw() {
 
 const char* AForm::AFormNotSignedException::what() const throw() {
   return "Form is not signed";
+}
+
+const char* AForm::AFormExecutedException::what() const throw() {
+  return "Form is already executed";
 }

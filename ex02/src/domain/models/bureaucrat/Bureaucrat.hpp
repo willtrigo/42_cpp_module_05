@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 18:20:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/12 21:51:24 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ class Bureaucrat {
   Bureaucrat();
   Bureaucrat(const std::string& name, int grade);
   Bureaucrat(const Bureaucrat& other);
-  Bureaucrat& operator=(const Bureaucrat& other);
   ~Bureaucrat();
+
+  Bureaucrat& operator=(const Bureaucrat& other);
 
   std::string getName() const;
   int getGrade() const;

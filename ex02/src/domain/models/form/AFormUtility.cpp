@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:43:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 22:30:26 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/12 22:49:49 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ bool AForm::isSigned() const throw() {
   return this->m_signed;
 }
 
+bool AForm::isExecuted() const throw() {
+  return this->m_executed;
+}
+
+void AForm::setExecuted(AForm& aform) {
+  aform.m_executed = true;
+}
+
 void AForm::beSigned(Bureaucrat& bureaucrat) {
   if (bureaucrat.getGrade() > this->m_gradeToSign) {
     throw AForm::GradeTooLowException();
@@ -50,11 +58,13 @@ void AForm::validateAForm(int gradeToSign, int gradeToExecute) const {
   }
 }
 
-void AForm::execute(const Bureaucrat& bureaucrat) const {
+void AForm::execute(const Bureaucrat& executor) const {
   if (!this->isSigned()) {
     throw AForm::AFormNotSignedException();
-  } else if (bureaucrat.getGrade() > this->getGradeToExecute()) {
+  } else if (executor.getGrade() > this->getGradeToExecute()) {
     throw AForm::GradeTooLowException();
+  } else if (this->isExecuted()) {
+    throw AForm::AFormExecutedException();
   }
   this->executeTask();
 }
