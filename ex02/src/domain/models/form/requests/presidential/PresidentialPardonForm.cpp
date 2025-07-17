@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:05:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/12 21:52:33 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:18:19 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,5 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
   }
   return *this;
 }
+
+PresidentialPardonForm::~PresidentialPardonForm() {}

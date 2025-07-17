@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/11 18:15:33 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/17 18:24:30 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,8 @@ SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR)
 
 SRCS_FILES                      += $(addprefix $(SRCS_FILE_DIR), FileWriter.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), BureaucratPrinter.cpp \
-								   FormPrinter.cpp)
+								   FormPrinter.cpp \
+								   StreamWriter.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestHelpers.cpp \
