@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/12 22:55:12 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:28:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ class AForm {
   int getGradeToExecute() const throw();
   bool isSigned() const throw();
   bool isExecuted() const throw();
-  void setExecuted(AForm& aform);
 
   void beSigned(Bureaucrat& bureaucrat);
 
@@ -62,7 +61,6 @@ class AForm {
 
  protected:
   virtual void executeTask() const = 0;
-  bool m_executed;
 
  private:
   AForm();
@@ -79,6 +77,7 @@ class AForm {
   const int m_gradeToSign;
   const int m_gradeToExecute;
   bool m_signed;
+  mutable bool m_executed;
 };
 
 #endif // AFORM_HPP

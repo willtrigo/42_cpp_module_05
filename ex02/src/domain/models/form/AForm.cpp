@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:31 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/12 22:56:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:31:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 const std::string AForm::DEFAULT_FORM_NAME = "Unamed AForm";
 
 AForm::AForm()
-  : m_executed(false),
-    m_name(DEFAULT_FORM_NAME),
+    : m_name(DEFAULT_FORM_NAME),
     m_gradeToSign(DEFAULT_GRADE_TO_SIGN),
     m_gradeToExecute(DEFAULT_GRADE_TO_EXECUTE),
-    m_signed(false) {}
+    m_signed(false),
+    m_executed(false) {}
 
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute) 
-  : m_name(name),
+    : m_name(name),
     m_gradeToSign(gradeToSign),
     m_gradeToExecute(gradeToExecute),
     m_signed(false),
@@ -32,7 +32,7 @@ AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
 }
 
 AForm::AForm(const AForm& other)
-  : m_name(other.m_name),
+    : m_name(other.m_name),
     m_gradeToSign(other.m_gradeToSign),
     m_gradeToExecute(other.m_gradeToExecute),
     m_signed(other.m_signed),
