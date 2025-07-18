@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/06 14:41:21 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:12:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,19 @@ enum Style {
 
 class TerminalColor {
  public:
-  ~TerminalColor();
-
-  static TerminalColor& getInstance();
-
-  std::string setColor(StrColor strColor, const std::string& str) const;
-  std::string setColor(BgColor bgColor, const std::string& str) const;
-  std::string setColor(Style style, const std::string& str) const;
-  std::string setColor(BgColor bgColor, StrColor strColor, const std::string& str) const;
-  std::string setColor(BgColor bgColor, Style style, const std::string& str) const;
-  std::string setColor(StrColor strColor, Style style, const std::string& str) const;
-  std::string setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str) const;
+  static std::string setColor(StrColor strColor, const std::string& str);
+  static std::string setColor(BgColor bgColor, const std::string& str);
+  static std::string setColor(Style style, const std::string& str);
+  static std::string setColor(BgColor bgColor, StrColor strColor, const std::string& str);
+  static std::string setColor(BgColor bgColor, Style style, const std::string& str);
+  static std::string setColor(StrColor strColor, Style style, const std::string& str);
+  static std::string setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str);
 
  private:
   TerminalColor();
   TerminalColor(const TerminalColor&);
   TerminalColor& operator=(const TerminalColor&);
+  ~TerminalColor();
 
   static const std::pair<StrColor, std::string> STR_COLOR_MAP[];
   static const std::pair<BgColor, std::string> BG_COLOR_MAP[];

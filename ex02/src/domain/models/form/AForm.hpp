@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/17 11:28:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:56:29 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ class AForm {
 
  protected:
   virtual void executeTask() const = 0;
+  mutable bool m_executed;
 
  private:
   AForm();
@@ -77,7 +78,6 @@ class AForm {
   const int m_gradeToSign;
   const int m_gradeToExecute;
   bool m_signed;
-  mutable bool m_executed;
 };
 
 #endif // AFORM_HPP

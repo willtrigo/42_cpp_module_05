@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/17 18:24:30 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/18 15:42:44 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,11 @@ SRCS_FORM_EXCEPTIONS_DIR        := $(SRCS_FORM_DIR)exceptions/
 SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
 SRCS_FILE_DIR                   := $(SRCS_INFRASTRUCTURE_DIR)file/
 SRCS_IO_DIR                     := $(SRCS_INFRASTRUCTURE_DIR)io/
+SRCS_UTILS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)utils/
 
 SRCS_INTERFACES_DIR             := $(SRCS_DIR)interfaces/
 SRCS_CLI_DIR                    := $(SRCS_INTERFACES_DIR)cli/
 SRCS_TESTING_DIR                := $(SRCS_INTERFACES_DIR)testing/
-
-SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
-SRCS_LOGGING_DIR                := $(SRCS_UTILS_DIR)logging/
 
 INCS                            := src/
 BIN_DIR                         := bin/
@@ -93,13 +91,13 @@ SRCS_FILES                      += $(addprefix $(SRCS_FILE_DIR), FileWriter.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), BureaucratPrinter.cpp \
 								   FormPrinter.cpp \
 								   StreamWriter.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \
+								   TerminalColorUtility.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestHelpers.cpp \
 								   TestSuite.cpp)
 
-SRCS_FILES                      += $(addprefix $(SRCS_LOGGING_DIR), TerminalColor.cpp \
-								   TerminalColorUtility.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 

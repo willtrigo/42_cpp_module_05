@@ -6,14 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:47:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/17 18:11:55 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:19:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STREAMWRITER_HPP
 #define STREAMWRITER_HPP
 
-#include "utils/logging/TerminalColor.hpp"
+#include "infrastructure/utils/TerminalColor.hpp"
 #include <string>
 
 class StreamWriter {
@@ -23,8 +23,8 @@ class StreamWriter {
 
  private:
   StreamWriter();
-  StreamWriter(const StreamWriter& other);
-  StreamWriter& operator=(const StreamWriter& other);
+  StreamWriter(const StreamWriter&);
+  StreamWriter& operator=(const StreamWriter&);
   ~StreamWriter();
 };
 

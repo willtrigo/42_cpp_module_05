@@ -6,14 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:43:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/17 09:00:35 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 16:01:04 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include "domain/models/form/AForm.hpp"
-#include "infrastructure/io/FormPrinter.hpp"
-#include <iostream>
+#include "infrastructure/io/StreamWriter.hpp"
+#include "infrastructure/utils/TerminalColor.hpp"
 #include <string>
 
 const std::string AForm::getName() const throw() {
@@ -43,7 +43,8 @@ void AForm::beSigned(Bureaucrat& bureaucrat) {
     throw AForm::AFormSignedException();
   }
   this->m_signed = true;
-  FormPrinter::printBeSigned(std::cout, bureaucrat, *this);
+  StreamWriter::print(BLUE, "Bureaucrat " + bureaucrat.getName() +
+                      " signed form " + this->getName());
 }
 
 void AForm::validateAForm(int gradeToSign, int gradeToExecute) const {
@@ -63,5 +64,4 @@ void AForm::execute(const Bureaucrat& executor) const {
     throw AForm::AFormExecutedException();
   }
   this->executeTask();
-  this->m_executed = true;
 }
