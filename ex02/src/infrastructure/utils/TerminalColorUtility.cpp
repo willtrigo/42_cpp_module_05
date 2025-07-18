@@ -6,11 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:21:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:33:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/utils/TerminalColor.hpp"
+#include <string>
 
 std::string TerminalColor::setColor(StrColor strColor, const std::string& str) {
   std::string result;

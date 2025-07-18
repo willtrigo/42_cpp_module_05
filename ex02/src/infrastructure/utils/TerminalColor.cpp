@@ -6,13 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:25 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:13:41 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:35:43 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <stdexcept>
-#include <string>
 #include <utility>
 
 const std::pair<StrColor, std::string> TerminalColor::STR_COLOR_MAP[] = {

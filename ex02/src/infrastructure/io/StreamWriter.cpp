@@ -6,13 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:46:57 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:35:39 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:37:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/io/StreamWriter.hpp"
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <iostream>
+#include <stdexcept>
 
 StreamWriter::StreamWriter() {}
 

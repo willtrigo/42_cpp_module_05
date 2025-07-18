@@ -6,13 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:35:37 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:37:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/io/FormPrinter.hpp"
 #include "domain/models/form/AForm.hpp"
 #include <iostream>
+#include <stdexcept>
 
 FormPrinter::FormPrinter() {}
 

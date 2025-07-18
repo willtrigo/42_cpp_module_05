@@ -4,3 +4,4 @@
 *.d
 bin/
 build/
+*_shrubbery

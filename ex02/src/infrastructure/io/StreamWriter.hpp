@@ -6,12 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:47:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:19:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:28:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STREAMWRITER_HPP
-#define STREAMWRITER_HPP
+#ifndef STREAM_WRITER_HPP
+#define STREAM_WRITER_HPP
 
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <string>
@@ -28,4 +28,4 @@ class StreamWriter {
   ~StreamWriter();
 };
 
-#endif // STREAMWRITER_HPP
+#endif // STREAM_WRITER_HPP
