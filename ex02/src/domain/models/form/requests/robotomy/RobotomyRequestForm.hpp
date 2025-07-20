@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:08:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 16:35:29 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:52:15 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ class RobotomyRequestForm : public AForm {
   void executeTask() const;
 
  private:
-  static const std::string DEFAULT_TARGET;
-  static const std::string DEFAULT_FORM_NAME;
   static const int GRADE_TO_SIGN = 72;
   static const int GRADE_TO_EXECUTE = 45;
+  static const std::string DEFAULT_FORM_NAME;
+
   std::string m_target;
 
-  RobotomyRequestForm();
+  void performDrillingNoises() const;
+  bool isRobotomySuccessful() const;
+  void announceRobotomyResult(bool success) const;
 };
 
 #endif // ROBOTOMY_REQUEST_FORM_HPP

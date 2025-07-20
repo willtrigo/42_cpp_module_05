@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:09:01 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:24:03 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:40:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 #include "domain/models/form/AForm.hpp"
 #include <string>
 
-const std::string ShrubberyCreationForm::DEFAULT_TARGET = "Unknow Target";
 const std::string ShrubberyCreationForm::DEFAULT_FORM_NAME = "Shrubbery Creation Form";
-
-ShrubberyCreationForm::ShrubberyCreationForm()
-  : AForm(DEFAULT_FORM_NAME, GRADE_TO_SIGN, GRADE_TO_EXECUTE),
-    m_target(DEFAULT_TARGET) {}
-
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
   : AForm(DEFAULT_FORM_NAME, GRADE_TO_SIGN, GRADE_TO_EXECUTE),
     m_target(target) {}

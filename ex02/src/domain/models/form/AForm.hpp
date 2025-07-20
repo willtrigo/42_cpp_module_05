@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 15:56:29 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:05:14 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,16 @@ class AForm {
   bool isSigned() const throw();
   bool isExecuted() const throw();
 
+  void markAsExecuted() const throw();
+
   void beSigned(Bureaucrat& bureaucrat);
+  bool canBeExecutedBy(const Bureaucrat& executor) const throw();
+  bool isValidForExecution() const throw();
 
   void execute(const Bureaucrat& executor) const;
+  virtual void executeTask() const = 0;
 
  protected:
-  virtual void executeTask() const = 0;
   mutable bool m_executed;
 
  private:

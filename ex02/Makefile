@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/18 15:42:44 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/19 23:05:46 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ NAME_OUTPUT                     = bureaucrat
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += $(addprefix $(SRCS_COMMANDS_DIR), ExecuteFormCommand.cpp \
+								   ExecuteFormCommandUtility.cpp \
 								   SignFormCommand.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_FORM_DIR), AForm.cpp \

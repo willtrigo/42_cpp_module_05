@@ -6,10 +6,11 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:43:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 16:01:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:19:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "application/commands/ExecuteFormCommand.hpp"
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include "domain/models/form/AForm.hpp"
 #include "infrastructure/io/StreamWriter.hpp"
@@ -36,6 +37,10 @@ bool AForm::isExecuted() const throw() {
   return this->m_executed;
 }
 
+void AForm::markAsExecuted() const throw() {
+  this->m_executed = true;
+}
+
 void AForm::beSigned(Bureaucrat& bureaucrat) {
   if (bureaucrat.getGrade() > this->m_gradeToSign) {
     throw AForm::GradeTooLowException();
@@ -55,13 +60,15 @@ void AForm::validateAForm(int gradeToSign, int gradeToExecute) const {
   }
 }
 
+bool AForm::canBeExecutedBy(const Bureaucrat& executor) const throw() {
+  return executor.getGrade() <= this->m_gradeToExecute;
+}
+
+bool AForm::isValidForExecution() const throw() {
+  return this->m_signed && !this->m_executed;
+}
+
 void AForm::execute(const Bureaucrat& executor) const {
-  if (!this->isSigned()) {
-    throw AForm::AFormNotSignedException();
-  } else if (executor.getGrade() > this->getGradeToExecute()) {
-    throw AForm::GradeTooLowException();
-  } else if (this->isExecuted()) {
-    throw AForm::AFormExecutedException();
-  }
-  this->executeTask();
+  ExecuteFormCommand form(*this, executor);
+  form.execute();
 }
