@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:05:14 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/20 00:52:23 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,19 @@ class AForm {
   bool isExecuted() const throw();
 
   void markAsExecuted() const throw();
+  void markAsSigned() const throw();
 
   void beSigned(Bureaucrat& bureaucrat);
+  bool canBeSignedBy(const Bureaucrat& executor) const throw();
   bool canBeExecutedBy(const Bureaucrat& executor) const throw();
+  bool isValidForSign() const throw();
   bool isValidForExecution() const throw();
 
   void execute(const Bureaucrat& executor) const;
   virtual void executeTask() const = 0;
 
  protected:
+  mutable bool m_signed;
   mutable bool m_executed;
 
  private:
@@ -81,7 +85,6 @@ class AForm {
   const std::string m_name;
   const int m_gradeToSign;
   const int m_gradeToExecute;
-  bool m_signed;
 };
 
 #endif // AFORM_HPP

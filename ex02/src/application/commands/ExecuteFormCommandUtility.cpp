@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 23:04:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 23:05:25 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/20 00:59:59 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void ExecuteFormCommand::handleExecutionSuccess() const {
 
 void ExecuteFormCommand::logExecutionSuccess() const {
   const std::string msg = "Bureaucrat " + this->m_executor->getName() +
-                          " executed form " + this->m_form->getName();
-  StreamWriter::print(GREEN, msg);
+                          " executed " + this->m_form->getName();
+  StreamWriter::print(BLUE, msg);
 }
