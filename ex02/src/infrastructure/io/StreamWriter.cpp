@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:46:57 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:37:26 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:20:00 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ StreamWriter::StreamWriter() {}
 
 StreamWriter::StreamWriter(const StreamWriter&) {}
 
+StreamWriter::~StreamWriter() {}
+
 StreamWriter& StreamWriter::operator=(const StreamWriter&) {
   throw std::runtime_error("Copying of StreamWriter is not allowed");
 }
-
-StreamWriter::~StreamWriter() {}
 
 void StreamWriter::print(StrColor strColor, const std::string &str) {
   std::cout << TerminalColor::setColor(strColor, str) << std::endl;

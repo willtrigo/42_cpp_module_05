@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:02:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:38:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:15:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ class BureaucratPrinter {
  private:
   BureaucratPrinter();
   BureaucratPrinter(const BureaucratPrinter&);
-  BureaucratPrinter& operator=(const BureaucratPrinter&);
   ~BureaucratPrinter();
+
+  BureaucratPrinter& operator=(const BureaucratPrinter&);
 };
 
 #endif // BUREAUCRAT_PRINTER_HPP

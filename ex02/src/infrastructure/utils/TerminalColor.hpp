@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:34:49 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:15:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ class TerminalColor {
  private:
   TerminalColor();
   TerminalColor(const TerminalColor&);
-  TerminalColor& operator=(const TerminalColor&);
   ~TerminalColor();
+
+  TerminalColor& operator=(const TerminalColor&);
 
   static const std::pair<StrColor, std::string> STR_COLOR_MAP[];
   static const std::pair<BgColor, std::string> BG_COLOR_MAP[];

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:09:01 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:40:53 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:18:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
   : AForm(DEFAULT_FORM_NAME, GRADE_TO_SIGN, GRADE_TO_EXECUTE),
     m_target(other.m_target) {}
 
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
   if (this != &other) {
     AForm::operator=(other);
@@ -30,5 +32,3 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
   }
   return *this;
 }
-
-ShrubberyCreationForm::~ShrubberyCreationForm() {}

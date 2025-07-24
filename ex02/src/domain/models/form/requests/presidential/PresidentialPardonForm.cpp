@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:05:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:40:05 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:19:11 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
   : AForm(DEFAULT_FORM_NAME, GRADE_TO_SIGN, GRADE_TO_EXECUTE),
     m_target(other.m_target) {}
 
+PresidentialPardonForm::~PresidentialPardonForm() {}
+
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) {
   if (this != &other) {
     AForm::operator=(other);
@@ -31,5 +33,3 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
   }
   return *this;
 }
-
-PresidentialPardonForm::~PresidentialPardonForm() {}

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:47:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:28:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:15:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class StreamWriter {
  private:
   StreamWriter();
   StreamWriter(const StreamWriter&);
-  StreamWriter& operator=(const StreamWriter&);
   ~StreamWriter();
+
+  StreamWriter& operator=(const StreamWriter&);
 };
 
 #endif // STREAM_WRITER_HPP

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:25 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:35:43 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:20:51 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ const std::pair<Style, std::string> TerminalColor::STYLE_MAP[] = {
 
 TerminalColor::TerminalColor() {}
 
-TerminalColor::TerminalColor(const TerminalColor&) {
-  throw std::runtime_error("Copying of TerminalColor is not allowed");
-}
+TerminalColor::TerminalColor(const TerminalColor&) {}
 
 TerminalColor::~TerminalColor() {}
+
+TerminalColor& TerminalColor::operator=(const TerminalColor&) {
+  throw std::runtime_error("Copying of TerminalColor is not allowed");
+}

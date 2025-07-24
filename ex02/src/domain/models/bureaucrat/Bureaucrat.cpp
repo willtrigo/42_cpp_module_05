@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:37 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 18:18:39 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:18:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
   : m_name(other.m_name),
     m_grade(other.m_grade) {}
 
+Bureaucrat::~Bureaucrat() {}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   if (this != &other) {
     const_cast<std::string&>(this->m_name) = other.m_name;
@@ -36,5 +38,3 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   }
   return *this;
 }
-
-Bureaucrat::~Bureaucrat() {}

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:31 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/20 00:53:13 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:19:32 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ AForm::AForm(const AForm& other)
     m_gradeToSign(other.m_gradeToSign),
     m_gradeToExecute(other.m_gradeToExecute) {}
 
+AForm::~AForm() {}
+
 AForm& AForm::operator=(const AForm& other) {
   if (this != &other) {
     const_cast<std::string&>(this->m_name) = other.m_name;
@@ -48,5 +50,3 @@ AForm& AForm::operator=(const AForm& other) {
   }
   return *this;
 }
-
-AForm::~AForm() {}
