@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:02:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 19:15:36 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 17:44:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #define FORM_PRINTER_HPP
 
 #include "domain/models/form/AForm.hpp"
+#include <iostream>
 
 class FormPrinter {
  public:
-  static void printForm(const AForm& aform);
+  static void print(std::ostream& os, const AForm& aform);
 
  private:
   FormPrinter();

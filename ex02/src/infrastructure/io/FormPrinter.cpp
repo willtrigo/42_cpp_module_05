@@ -6,13 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:37:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 17:51:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/io/FormPrinter.hpp"
 #include "domain/models/form/AForm.hpp"
 #include <iostream>
+#include <ostream>
 #include <stdexcept>
 
 FormPrinter::FormPrinter() {}
@@ -25,9 +26,10 @@ FormPrinter& FormPrinter::operator=(const FormPrinter&) {
 
 FormPrinter::~FormPrinter() {}
 
-void FormPrinter::printForm(const AForm& aform) {
-  std::cout << "Form, " << aform.getName()
+void FormPrinter::print(std::ostream& os, const AForm& aform) {
+  os << "Form, " << aform.getName()
      << ", Grade to Sign: " << aform.getGradeToSign()
      << ", Grade to Execute: " << aform.getGradeToExecute()
-     << ", Status: " << (aform.isSigned() ? "Signed" : "Unsigned");
+     << ", Status: " << (aform.isSigned() ? "Signed" : "Unsigned")
+     << std::endl;
 }

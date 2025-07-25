@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:01:19 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 21:37:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 17:45:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "infrastructure/io/StreamWriter.hpp"
 #include "infrastructure/utils/TerminalColor.hpp"
 #include "interfaces/testing/domain/BureaucratTests.hpp"
+#include "interfaces/testing/domain/FormTests.hpp"
 #include <stdexcept>
 
 TestRunner::TestRunner() {}
@@ -30,6 +31,7 @@ void TestRunner::runAllTests() {
   TestRunner::PrintSection(GREEN, RESET, false, "BUREAUCRAT TESTING SUITE");
 
   BureaucratTests::createTestSuite();
+  FormTests::createTestSuite();
 
   TestRunner::PrintSection(GREEN, RESET, true, "ALL TESTS COMPLETED");
 }
