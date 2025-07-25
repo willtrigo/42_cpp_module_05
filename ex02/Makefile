@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/20 00:48:12 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/24 21:22:36 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ SRCS_UTILS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)utils/
 SRCS_INTERFACES_DIR             := $(SRCS_DIR)interfaces/
 SRCS_CLI_DIR                    := $(SRCS_INTERFACES_DIR)cli/
 SRCS_TESTING_DIR                := $(SRCS_INTERFACES_DIR)testing/
+SRCS_TESTING_DOMAIN_DIR         := $(SRCS_TESTING_DIR)domain/
+SRCS_TESTING_INTEGRATION_DIR    := $(SRCS_TESTING_DIR)integration/
 
 INCS                            := src/
 BIN_DIR                         := bin/
@@ -97,9 +99,10 @@ SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.
 								   TerminalColorUtility.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestHelpers.cpp \
-								   TestSuite.cpp)
-
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestRunner.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DOMAIN_DIR), BureaucratTests.cpp \
+								   FormTests.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_INTEGRATION_DIR), IntegrationTests.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 
