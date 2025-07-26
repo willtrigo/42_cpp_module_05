@@ -6,16 +6,21 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:08:28 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 22:54:55 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:17:00 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "domain/models/form/AForm.hpp"
 #include "domain/models/form/requests/robotomy/RobotomyRequestForm.hpp"
 #include "infrastructure/io/StreamWriter.hpp"
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <cstdlib>
 #include <ctime>
 #include <string>
+
+AForm* RobotomyRequestForm::clone() const {
+  return new RobotomyRequestForm(*this);
+}
 
 void RobotomyRequestForm::executeTask() const {
   this->performDrillingNoises();

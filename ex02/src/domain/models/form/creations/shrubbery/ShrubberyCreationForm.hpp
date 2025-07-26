@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:09:25 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:40:43 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:19:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ShrubberyCreationForm : public AForm {
 
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 
+  virtual AForm* clone() const;
   void executeTask() const;
 
  private:

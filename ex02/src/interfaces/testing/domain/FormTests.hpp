@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:17:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 16:26:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 10:09:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class FormTests {
 
   FormTests& operator=(const FormTests&);
 
-  static void testBasicFunctionality();
+  static void testFormBasicFunctionality();
+  static void testFormCopyOperations();
 };
 
 #endif // FORM_TESTS_HPP

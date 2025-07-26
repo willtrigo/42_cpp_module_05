@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:09:51 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:17:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:19:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "infrastructure/io/StreamWriter.hpp"
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <string>
+
+AForm* ShrubberyCreationForm::clone() const {
+  return new ShrubberyCreationForm(*this);
+}
 
 void ShrubberyCreationForm::executeTask() const {
   std::string filename = this->m_target + "_shrubbery";

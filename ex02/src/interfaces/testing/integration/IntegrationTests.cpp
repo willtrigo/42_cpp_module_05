@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 23:55:06 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:41:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include "interfaces/testing/TestRunner.hpp"
 #include <exception>
 #include <iostream>
+#include <memory>
 #include <stdexcept>
 
 IntegrationTests::IntegrationTests() {}
@@ -52,7 +53,7 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(GREEN, "Created form:");
-    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *form_pardon);
 
     form_pardon->beSigned(boss);
@@ -73,7 +74,7 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(YELLOW, "Created form:");
-    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *form_robotomy);
 
     form_robotomy->beSigned(boss);
@@ -96,7 +97,7 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(PURPLE, "Created form:");
-    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *form_shrunbbery);
 
     form_shrunbbery->beSigned(boss);
@@ -119,7 +120,7 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *form_pardon);
 
     form_pardon->beSigned(randomDude);
@@ -140,7 +141,7 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *form_robotomy);
 
     form_robotomy->beSigned(randomDude);
@@ -161,7 +162,7 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *form_shrunbbery);
 
     form_shrunbbery->beSigned(randomDude);
@@ -184,7 +185,7 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *form_pardon);
 
     form_pardon->beSigned(randomDude);
@@ -208,7 +209,7 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *form_robotomy);
 
     form_robotomy->beSigned(randomDude);
@@ -232,7 +233,7 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *form_shrunbbery);
 
     form_shrunbbery->beSigned(randomDude);
@@ -258,7 +259,7 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *form_pardon);
 
     form_pardon->beSigned(randomDude);
@@ -282,7 +283,7 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *form_robotomy);
 
     form_robotomy->beSigned(randomDude);
@@ -306,7 +307,7 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *form_shrunbbery);
 
     form_shrunbbery->beSigned(randomDude);
@@ -332,7 +333,7 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *form_pardon);
 
     form_pardon->beSigned(randomDude);
@@ -359,7 +360,7 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *form_robotomy);
 
     form_robotomy->beSigned(randomDude);
@@ -388,7 +389,7 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *form_shrunbbery);
 
     form_shrunbbery->beSigned(randomDude);

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:09:01 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 19:18:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 13:20:25 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
     m_target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-  : AForm(DEFAULT_FORM_NAME, GRADE_TO_SIGN, GRADE_TO_EXECUTE),
+  : AForm(other),
     m_target(other.m_target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}

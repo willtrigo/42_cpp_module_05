@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:08:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/19 22:52:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:16:34 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class RobotomyRequestForm : public AForm {
 
   RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 
+  virtual AForm* clone () const;
   void executeTask() const;
 
  private:

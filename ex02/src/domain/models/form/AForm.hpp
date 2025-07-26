@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/20 00:52:23 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:15:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ class AForm {
   virtual ~AForm();
 
   AForm& operator=(const AForm& other);
+
+  virtual AForm* clone() const = 0;
 
   const std::string getName() const throw();
   int getGradeToSign() const throw();
