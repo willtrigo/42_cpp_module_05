@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:38 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 15:37:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:43:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 #include <iostream>
 #include <memory>
 #include <stdexcept>
-
-FormTests::FormTests() {}
 
 FormTests::FormTests(const FormTests&) {}
 

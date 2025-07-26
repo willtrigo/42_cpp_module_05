@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:02:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 17:44:26 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:30:53 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class FormPrinter {
   static void print(std::ostream& os, const AForm& aform);
 
  private:
-  FormPrinter();
   FormPrinter(const FormPrinter&);
   ~FormPrinter();
 

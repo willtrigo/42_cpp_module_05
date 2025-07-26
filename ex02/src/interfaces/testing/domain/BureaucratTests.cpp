@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:41 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 23:50:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:34:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "interfaces/testing/TestRunner.hpp"
 #include <iostream>
 #include <stdexcept>
-
-BureaucratTests::BureaucratTests() {}
 
 BureaucratTests::BureaucratTests(const BureaucratTests&) {}
 
@@ -43,16 +41,6 @@ void BureaucratTests::testBasicFuntionality() {
   try {
     Bureaucrat daniel("Daniel Trigo", 42);
     BureaucratPrinter::print(std::cout, daniel);
-  } catch (const std::exception& e) {
-    StreamWriter::print(ORANGE, "Caught unexpected exception:");
-    StreamWriter::print(RED, e.what());
-  }
-
-  TestRunner::PrintSeparator();
-
-  try {
-    Bureaucrat defaultBureaucrat;
-    BureaucratPrinter::print(std::cout, defaultBureaucrat);
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
     StreamWriter::print(RED, e.what());

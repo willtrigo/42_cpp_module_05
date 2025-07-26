@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:38:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:30:43 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
-
-BureaucratPrinter::BureaucratPrinter() {}
 
 BureaucratPrinter::BureaucratPrinter(const BureaucratPrinter&) {}
 

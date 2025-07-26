@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 15:15:03 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:32:19 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,8 @@ class AForm {
   mutable bool m_executed;
 
  private:
-  AForm();
-
   void validateAForm(int gradeToSign, int gradeToExecute) const;
 
-  static const std::string DEFAULT_FORM_NAME;
-  static const int DEFAULT_GRADE_TO_EXECUTE = 150;
-  static const int DEFAULT_GRADE_TO_SIGN = 150;
   static const int HIGHEST_GRADE = 150;
   static const int LOWEST_GRADE = 1;
 

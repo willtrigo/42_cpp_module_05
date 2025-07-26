@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 22:52:06 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:31:02 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <iostream>
 #include <ostream>
 #include <stdexcept>
-
-FormPrinter::FormPrinter() {}
 
 FormPrinter::FormPrinter(const FormPrinter&) {}
 

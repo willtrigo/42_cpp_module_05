@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:01:19 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 23:44:55 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:44:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "interfaces/testing/domain/FormTests.hpp"
 #include "interfaces/testing/integration/IntegrationTests.hpp"
 #include <stdexcept>
-
-TestRunner::TestRunner() {}
 
 TestRunner::TestRunner(const TestRunner&) {}
 

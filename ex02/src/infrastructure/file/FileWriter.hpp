@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 17:59:52 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 19:15:20 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:29:57 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class FileWriter {
   static void writeToFile(const std::string& filename, const std::string& content);
 
  private:
-  FileWriter();
   FileWriter(const FileWriter&);
   ~FileWriter();
 

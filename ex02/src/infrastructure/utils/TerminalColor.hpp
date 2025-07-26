@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 19:15:48 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:32:56 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ class TerminalColor {
   static std::string setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str);
 
  private:
-  TerminalColor();
   TerminalColor(const TerminalColor&);
   ~TerminalColor();
 

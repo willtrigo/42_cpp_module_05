@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:17:04 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 10:09:03 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:43:36 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class FormTests {
   static void createTestSuite();
 
  private:
-  FormTests();
   FormTests(const FormTests&);
   ~FormTests();
 

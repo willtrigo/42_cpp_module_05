@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:16:46 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 23:08:08 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:34:21 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class BureaucratTests {
   static void createTestSuite();
 
  private:
-  BureaucratTests();
   BureaucratTests(const BureaucratTests&);
   ~BureaucratTests();
 

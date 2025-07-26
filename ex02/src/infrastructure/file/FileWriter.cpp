@@ -6,15 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:03:52 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:43:50 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:30:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/file/FileWriter.hpp"
 #include <fstream>
 #include <stdexcept>
-
-FileWriter::FileWriter() {}
 
 FileWriter::FileWriter(const FileWriter&) {}
 

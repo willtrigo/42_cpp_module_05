@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:02:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 19:15:30 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:30:35 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class BureaucratPrinter {
   static void print(std::ostream& os, const Bureaucrat& bureaucrat);
 
  private:
-  BureaucratPrinter();
   BureaucratPrinter(const BureaucratPrinter&);
   ~BureaucratPrinter();
 

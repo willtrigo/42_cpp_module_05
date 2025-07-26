@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:16 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:44:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@
 #include <iostream>
 #include <memory>
 #include <stdexcept>
-
-IntegrationTests::IntegrationTests() {}
 
 IntegrationTests::IntegrationTests(const IntegrationTests&) {}
 

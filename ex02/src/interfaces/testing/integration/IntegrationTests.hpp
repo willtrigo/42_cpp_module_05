@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:58:09 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 23:21:49 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:43:56 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class IntegrationTests {
   static void createTestSuite();
 
  private:
-  IntegrationTests();
   IntegrationTests(const IntegrationTests&);
   ~IntegrationTests();
 
