@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:08:28 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/20 00:50:44 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 22:54:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,7 @@ void RobotomyRequestForm::announceRobotomyResult(bool success) const {
 
   const BgColor bgColor = success ? BG_GREEN : BG_RED;
   StreamWriter::print(WHITE, bgColor, msg);
+  if (success) {
+    this->markAsExecuted();
+  }
 }

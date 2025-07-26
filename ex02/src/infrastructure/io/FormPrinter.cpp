@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 17:51:28 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 22:52:06 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void FormPrinter::print(std::ostream& os, const AForm& aform) {
   os << "Form, " << aform.getName()
      << ", Grade to Sign: " << aform.getGradeToSign()
      << ", Grade to Execute: " << aform.getGradeToExecute()
-     << ", Status: " << (aform.isSigned() ? "Signed" : "Unsigned")
+     << ", Sign Status: " << (aform.isSigned() ? "Signed" : "Unsigned")
+     << ", Execute Status: " << (aform.isExecuted() ? "Executed" : "Unexecuted")
      << std::endl;
 }

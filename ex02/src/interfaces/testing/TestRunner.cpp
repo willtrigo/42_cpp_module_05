@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:01:19 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 17:45:58 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 23:44:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "infrastructure/utils/TerminalColor.hpp"
 #include "interfaces/testing/domain/BureaucratTests.hpp"
 #include "interfaces/testing/domain/FormTests.hpp"
+#include "interfaces/testing/integration/IntegrationTests.hpp"
 #include <stdexcept>
 
 TestRunner::TestRunner() {}
@@ -32,6 +33,7 @@ void TestRunner::runAllTests() {
 
   BureaucratTests::createTestSuite();
   FormTests::createTestSuite();
+  IntegrationTests::createTestSuite();
 
   TestRunner::PrintSection(GREEN, RESET, true, "ALL TESTS COMPLETED");
 }
@@ -42,9 +44,9 @@ void TestRunner::PrintSection(
   bool isJumpLine,
   const std::string& str) {
   if (isJumpLine) {
-    StreamWriter::print(defaultColor, "\n" + std::string(LINE_SIZE, '='));
+    StreamWriter::print(defaultColor, "\n" + std::string(TestRunner::LINE_SIZE, '='));
   } else {
-    StreamWriter::print(defaultColor, std::string(LINE_SIZE, '='));
+    StreamWriter::print(defaultColor, std::string(TestRunner::LINE_SIZE, '='));
   }
 
   if (strColor != RESET) {
@@ -53,5 +55,11 @@ void TestRunner::PrintSection(
     StreamWriter::print(defaultColor, str);
   }
 
-  StreamWriter::print(defaultColor, std::string(LINE_SIZE, '='));
+  StreamWriter::print(defaultColor, std::string(TestRunner::LINE_SIZE, '='));
+}
+
+void TestRunner::PrintSeparator() {
+  StreamWriter::print(RESET, "");
+  StreamWriter::print(WHITE, std::string(TestRunner::LINE_SIZE, '='));
+  StreamWriter::print(RESET, "");
 }

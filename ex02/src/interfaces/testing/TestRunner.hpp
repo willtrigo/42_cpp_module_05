@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:01:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 21:23:56 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 23:45:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class TestRunner {
     StrColor strColor,
     bool isJumpLIne,
     const std::string& str);
+  static void PrintSeparator();
+
+  static const int LINE_SIZE = 80;
 
  private:
   TestRunner();
@@ -29,8 +32,6 @@ class TestRunner {
   ~TestRunner();
 
   TestRunner& operator=(const TestRunner&);
-
-  static const int LINE_SIZE = 80;
 };
 
 #endif // TEST_RUNNER_HPP

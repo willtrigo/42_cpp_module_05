@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:38 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 17:55:36 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 23:50:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,40 +40,34 @@ void FormTests::createTestSuite() {
 void FormTests::testBasicFunctionality() {
   TestRunner::PrintSection(CYAN, CYAN, true, "Form Basic Functionality");
 
-  {
-    try {
-      StreamWriter::print(GREEN, "Created form:");
-	    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
-      FormPrinter::print(std::cout, *form_pardon);
-    } catch (const std::exception& e) {
-      StreamWriter::print(ORANGE, "Caught unexpected exception:");
-      StreamWriter::print(RED, e.what());
-    }
+  try {
+    StreamWriter::print(GREEN, "Created form:");
+    AForm *form_pardon = new PresidentialPardonForm("Will Trigo");
+    FormPrinter::print(std::cout, *form_pardon);
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
   }
 
-  StreamWriter::print(RESET, "");
+  TestRunner::PrintSeparator();
 
-  {
-    try {
-      StreamWriter::print(BLUE, "Created form:");
-	    AForm *form_robotomy = new RobotomyRequestForm("Staff");
-      FormPrinter::print(std::cout, *form_robotomy);
-    } catch (const std::exception& e) {
-      StreamWriter::print(ORANGE, "Caught unexpected exception:");
-      StreamWriter::print(RED, e.what());
-    }
+  try {
+    StreamWriter::print(BLUE, "Created form:");
+    AForm *form_robotomy = new RobotomyRequestForm("Staff");
+    FormPrinter::print(std::cout, *form_robotomy);
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
   }
 
-  StreamWriter::print(RESET, "");
+  TestRunner::PrintSeparator();
 
-  {
-    try {
-      StreamWriter::print(YELLOW, "Created form:");
-	    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
-      FormPrinter::print(std::cout, *form_shrunbbery);
-    } catch (const std::exception& e) {
-      StreamWriter::print(ORANGE, "Caught unexpected exception:");
-      StreamWriter::print(RED, e.what());
-    }
+  try {
+    StreamWriter::print(YELLOW, "Created form:");
+    AForm *form_shrunbbery = new ShrubberyCreationForm("home");
+    FormPrinter::print(std::cout, *form_shrunbbery);
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
   }
 }

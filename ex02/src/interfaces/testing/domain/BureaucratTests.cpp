@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:41 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/24 23:08:19 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/25 23:50:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,20 @@ void BureaucratTests::testBasicFuntionality() {
   try {
     Bureaucrat daniel("Daniel Trigo", 42);
     BureaucratPrinter::print(std::cout, daniel);
-
-    StreamWriter::print(RESET, "");
-
-    Bureaucrat defaultBureaucrat;
-    BureaucratPrinter::print(std::cout, defaultBureaucrat);
-	} catch (const std::exception& e) {
+  } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
     StreamWriter::print(RED, e.what());
-	}
+  }
+
+  TestRunner::PrintSeparator();
+
+  try {
+    Bureaucrat defaultBureaucrat;
+    BureaucratPrinter::print(std::cout, defaultBureaucrat);
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
+  }
 }
 
 void BureaucratTests::testGradeManipulation() {
@@ -94,7 +99,7 @@ void BureaucratTests::testInvalidConstruction() {
     StreamWriter::print(RED, e.what());
   }
 
-  StreamWriter::print(RESET, "");
+  TestRunner::PrintSeparator();
 
   try {
     StreamWriter::print(RESET, "Attempting to create bureaucrat with gradea 151...");
@@ -127,7 +132,7 @@ void BureaucratTests::testBoundaryConditions() {
     StreamWriter::print(RED, e.what());
   }
 
-  StreamWriter::print(RESET, "");
+  TestRunner::PrintSeparator();
 
   try {
     Bureaucrat bottomBureaucrat("Intern", 150);
