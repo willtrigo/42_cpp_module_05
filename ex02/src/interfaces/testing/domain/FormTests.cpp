@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:38 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/27 14:47:13 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:57:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void FormTests::testFormCopyOperations() {
     std::auto_ptr<AForm> formPardonOriginal(new PresidentialPardonForm("Original"));
     FormPrinter::print(std::cout, *formPardonOriginal);
 
-    StreamWriter::print(PURPLE, "Created form assigment:");
-    std::auto_ptr<AForm> formPardonAssignment(formPardonOriginal->clone());
-    FormPrinter::print(std::cout, *formPardonAssignment);
+    StreamWriter::print(PURPLE, "Created form copy:");
+    std::auto_ptr<AForm> formPardonCopy(formPardonOriginal->clone());
+    FormPrinter::print(std::cout, *formPardonCopy);
 
     StreamWriter::print(ORANGE, "After change the original:");
     formPardonOriginal->beSigned(randomDude);
@@ -92,8 +92,8 @@ void FormTests::testFormCopyOperations() {
     StreamWriter::print(GREEN, "Form original:");
     FormPrinter::print(std::cout, *formPardonOriginal);
 
-    StreamWriter::print(PURPLE, "Form assigment:");
-    FormPrinter::print(std::cout, *formPardonAssignment);
+    StreamWriter::print(PURPLE, "Form copy:");
+    FormPrinter::print(std::cout, *formPardonCopy);
 
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
@@ -108,9 +108,9 @@ void FormTests::testFormCopyOperations() {
     std::auto_ptr<AForm> formRobotomyOriginal(new RobotomyRequestForm("Staff"));
     FormPrinter::print(std::cout, *formRobotomyOriginal);
 
-    StreamWriter::print(PURPLE, "Created form assigment:");
-    std::auto_ptr<AForm> formRobotomyAssignment(formRobotomyOriginal->clone());
-    FormPrinter::print(std::cout, *formRobotomyAssignment);
+    StreamWriter::print(PURPLE, "Created form copy:");
+    std::auto_ptr<AForm> formRobotomyCopy(formRobotomyOriginal->clone());
+    FormPrinter::print(std::cout, *formRobotomyCopy);
 
     StreamWriter::print(ORANGE, "After change the original:");
     formRobotomyOriginal->beSigned(randomDude);
@@ -118,8 +118,8 @@ void FormTests::testFormCopyOperations() {
     StreamWriter::print(BLUE, "Form original:");
     FormPrinter::print(std::cout, *formRobotomyOriginal);
 
-    StreamWriter::print(PURPLE, "Form assigment:");
-    FormPrinter::print(std::cout, *formRobotomyAssignment);
+    StreamWriter::print(PURPLE, "Form copy:");
+    FormPrinter::print(std::cout, *formRobotomyCopy);
 
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
@@ -134,9 +134,9 @@ void FormTests::testFormCopyOperations() {
     std::auto_ptr<AForm> formShrunbberyOriginal(new ShrubberyCreationForm("home"));
     FormPrinter::print(std::cout, *formShrunbberyOriginal);
 
-    StreamWriter::print(PURPLE, "Created form assigment:");
-    std::auto_ptr<AForm> formShrunbberyAssignment(formShrunbberyOriginal->clone());
-    FormPrinter::print(std::cout, *formShrunbberyAssignment);
+    StreamWriter::print(PURPLE, "Created form copy:");
+    std::auto_ptr<AForm> formShrunbberyCopy(formShrunbberyOriginal->clone());
+    FormPrinter::print(std::cout, *formShrunbberyCopy);
 
     StreamWriter::print(ORANGE, "After change the original:");
     formShrunbberyOriginal->beSigned(randomDude);
@@ -144,8 +144,8 @@ void FormTests::testFormCopyOperations() {
     StreamWriter::print(YELLOW, "Form original:");
     FormPrinter::print(std::cout, *formShrunbberyOriginal);
 
-    StreamWriter::print(PURPLE, "Form assigment:");
-    FormPrinter::print(std::cout, *formShrunbberyAssignment);
+    StreamWriter::print(PURPLE, "Form copy:");
+    FormPrinter::print(std::cout, *formShrunbberyCopy);
 
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
