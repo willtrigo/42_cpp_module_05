@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:04:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:31:02 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:23:07 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ FormPrinter& FormPrinter::operator=(const FormPrinter&) {
 
 FormPrinter::~FormPrinter() {}
 
-void FormPrinter::print(std::ostream& os, const AForm& aform) {
-  os << "Form, " << aform.getName()
-     << ", Grade to Sign: " << aform.getGradeToSign()
-     << ", Grade to Execute: " << aform.getGradeToExecute()
-     << ", Sign Status: " << (aform.isSigned() ? "Signed" : "Unsigned")
-     << ", Execute Status: " << (aform.isExecuted() ? "Executed" : "Unexecuted")
-     << std::endl;
+std::ostream& FormPrinter::print(std::ostream& os, const AForm& aform) {
+  return os << "Form, " << aform.getName()
+            << ", Grade to Sign: " << aform.getGradeToSign()
+            << ", Grade to Execute: " << aform.getGradeToExecute()
+            << ", Sign Status: " << (aform.isSigned() ? "Signed" : "Unsigned")
+            << ", Execute Status: " << (aform.isExecuted() ? "Executed" : "Unexecuted")
+            << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:43:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/25 22:54:15 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:22:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "application/commands/SignFormCommand.hpp"
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include "domain/models/form/AForm.hpp"
+#include "infrastructure/io/FormPrinter.hpp"
+#include <iostream>
 #include <string>
 
 const std::string AForm::getName() const throw() {
@@ -76,4 +78,8 @@ bool AForm::isValidForExecution() const throw() {
 void AForm::execute(const Bureaucrat& executor) const {
   ExecuteFormCommand form(*this, executor);
   form.execute();
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& form) {
+  return FormPrinter::print(os, form);
 }

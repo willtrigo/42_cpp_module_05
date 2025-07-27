@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:02:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:30:35 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:17:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include <iostream>
+#include <ostream>
 
 class BureaucratPrinter {
  public:
-  static void print(std::ostream& os, const Bureaucrat& bureaucrat);
+  static std::ostream& print(std::ostream& os, const Bureaucrat& bureaucrat);
 
  private:
   BureaucratPrinter(const BureaucratPrinter&);

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:42:55 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:32:19 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:01:56 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define AFORM_HPP
 
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
+#include <exception>
 #include <string>
 
 class AForm {
@@ -69,19 +70,20 @@ class AForm {
   void execute(const Bureaucrat& executor) const;
   virtual void executeTask() const = 0;
 
- protected:
-  mutable bool m_signed;
-  mutable bool m_executed;
-
  private:
-  void validateAForm(int gradeToSign, int gradeToExecute) const;
-
   static const int HIGHEST_GRADE = 150;
   static const int LOWEST_GRADE = 1;
+
+  mutable bool m_signed;
+  mutable bool m_executed;
 
   const std::string m_name;
   const int m_gradeToSign;
   const int m_gradeToExecute;
+
+  void validateAForm(int gradeToSign, int gradeToExecute) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif // AFORM_HPP

@@ -6,11 +6,13 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:58 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/11 18:44:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 21:19:01 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
+#include "infrastructure/io/BureaucratPrinter.hpp"
+#include <iostream>
 #include <string>
 
 std::string Bureaucrat::getName() const {
@@ -40,4 +42,8 @@ void Bureaucrat::validateGrade(int grade) const {
   {
     throw GradeTooLowException();
   }
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
+  return BureaucratPrinter::print(os, bureaucrat);
 }
