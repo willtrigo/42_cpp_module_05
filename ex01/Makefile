@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 15:09:19 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/06 14:48:09 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/26 20:44:22 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,27 @@ RESET                           := \033[0m
 #******************************************************************************#
 
 SRCS_DIR                        := src/
-SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
-SRCS_CORE_DIR                   := $(SRCS_DIR)core/
-SRCS_BUREAUCRAT_DIR             := $(SRCS_CORE_DIR)bureaucrat/
+
+SRCS_APPLICATION_DIR            := $(SRCS_DIR)application/
+SRCS_COMMANDS_DIR               := $(SRCS_APPLICATION_DIR)commands/
+
+SRCS_DOMAIN_DIR                 := $(SRCS_DIR)domain/
+SRCS_MODELS_DIR                 := $(SRCS_DOMAIN_DIR)models/
+SRCS_BUREAUCRAT_DIR             := $(SRCS_MODELS_DIR)bureaucrat/
 SRCS_BUREAUCRAT_EXCEPTIONS_DIR  := $(SRCS_BUREAUCRAT_DIR)exceptions/
-SRCS_FORM_DIR                   := $(SRCS_CORE_DIR)form/
+SRCS_FORM_DIR                   := $(SRCS_MODELS_DIR)form/
 SRCS_FORM_EXCEPTIONS_DIR        := $(SRCS_FORM_DIR)exceptions/
-SRCS_TEST_DIR                   := $(SRCS_DIR)test/
-SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
+
+SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
+SRCS_IO_DIR                     := $(SRCS_INFRASTRUCTURE_DIR)io/
+SRCS_UTILS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)utils/
+
+SRCS_INTERFACES_DIR             := $(SRCS_DIR)interfaces/
+SRCS_CLI_DIR                    := $(SRCS_INTERFACES_DIR)cli/
+SRCS_TESTING_DIR                := $(SRCS_INTERFACES_DIR)testing/
+SRCS_TESTING_DOMAIN_DIR         := $(SRCS_TESTING_DIR)domain/
+SRCS_TESTING_INTEGRATION_DIR    := $(SRCS_TESTING_DIR)integration/
+
 INCS                            := src/
 BIN_DIR                         := bin/
 BUILD_DIR                       := build/
@@ -54,19 +67,27 @@ SLEEP                           := sleep 0.01
 NAME_OUTPUT                     = bureaucrat
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
-SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
-								   BureaucratUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_COMMANDS_DIR), SignFormCommand.cpp \
+								   SignFormCommandUtility.cpp)
+
 SRCS_FILES                      += $(addprefix $(SRCS_FORM_DIR), Form.cpp \
 								   FormUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormException.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestEx00.cpp \
-								   TestEx01.cpp \
-								   TestHelpers.cpp \
-								   TestSuite.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
+								   BureaucratUtility.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
+
+SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), BureaucratPrinter.cpp \
+								   FormPrinter.cpp \
+								   StreamWriter.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \
 								   TerminalColorUtility.cpp)
+
+SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestRunner.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DOMAIN_DIR), BureaucratTests.cpp \
+								   FormTests.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_INTEGRATION_DIR), IntegrationTests.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 
