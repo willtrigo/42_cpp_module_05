@@ -6,12 +6,24 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/18 17:33:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 12:19:19 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "infrastructure/utils/TerminalColor.hpp"
 #include <string>
+
+std::string TerminalColor::getColor(StrColor strColor) {
+  return STR_COLOR_MAP[strColor].second;
+}
+
+std::string TerminalColor::getColor(BgColor bgColor) {
+  return BG_COLOR_MAP[bgColor].second;
+}
+
+std::string TerminalColor::getColor(Style style) {
+  return STYLE_MAP[style].second;
+}
 
 std::string TerminalColor::setColor(StrColor strColor, const std::string& str) {
   std::string result;

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:40:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:32:56 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 12:14:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ enum Style {
 
 class TerminalColor {
  public:
+  static std::string getColor(StrColor strColor);
+  static std::string getColor(BgColor bgColor);
+  static std::string getColor(Style style);
   static std::string setColor(StrColor strColor, const std::string& str);
   static std::string setColor(BgColor bgColor, const std::string& str);
   static std::string setColor(Style style, const std::string& str);
