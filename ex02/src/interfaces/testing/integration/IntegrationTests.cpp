@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/27 12:08:44 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 14:47:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(boss);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->beSigned(boss);
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->execute(boss);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->execute(boss);
+    FormPrinter::print(std::cout, *formPardon);
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
     StreamWriter::print(RED, e.what());
@@ -73,15 +73,15 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(boss);
-    FormPrinter::print(std::cout, *form_robotomy);
+    formRobotomy->beSigned(boss);
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    while (!form_robotomy->isExecuted()) {
-      form_robotomy->execute(boss);
-      FormPrinter::print(std::cout, *form_robotomy);
+    while (!formRobotomy->isExecuted()) {
+      formRobotomy->execute(boss);
+      FormPrinter::print(std::cout, *formRobotomy);
     }
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
@@ -96,14 +96,14 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     BureaucratPrinter::print(std::cout, boss);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(boss);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->beSigned(boss);
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->execute(boss);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->execute(boss);
+    FormPrinter::print(std::cout, *formShrunbbery);
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
     StreamWriter::print(RED, e.what());
@@ -119,10 +119,10 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(randomDude);
+    formPardon->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -140,10 +140,10 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(randomDude);
+    formRobotomy->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -161,10 +161,10 @@ void IntegrationTests::testInsufficientGradeToSigingForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(randomDude);
+    formShrunbbery->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -184,13 +184,13 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(randomDude);
+    formPardon->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormSignedException:");
@@ -208,13 +208,13 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_robotomy);
+    formRobotomy->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(randomDude);
+    formRobotomy->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormSignedException:");
@@ -232,13 +232,13 @@ void IntegrationTests::testAlreadySignedForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(randomDude);
+    formShrunbbery->beSigned(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormSignedException:");
@@ -258,13 +258,13 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->execute(randomDude);
+    formPardon->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -282,13 +282,13 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_robotomy);
+    formRobotomy->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->execute(randomDude);
+    formRobotomy->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -306,13 +306,13 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->execute(randomDude);
+    formShrunbbery->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::GradeTooLowException& e) {
     StreamWriter::print(ORANGE, "Correctly caught GradeTooLowException:");
@@ -332,16 +332,16 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->execute(randomDude);
-    FormPrinter::print(std::cout, *form_pardon);
+    formPardon->execute(randomDude);
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->execute(randomDude);
+    formPardon->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormExecutedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormExecutedException:");
@@ -359,18 +359,18 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_robotomy);
+    formRobotomy->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    while (!form_robotomy->isExecuted()) {
-      form_robotomy->execute(randomDude);
-      FormPrinter::print(std::cout, *form_robotomy);
+    while (!formRobotomy->isExecuted()) {
+      formRobotomy->execute(randomDude);
+      FormPrinter::print(std::cout, *formRobotomy);
     }
 
-    form_robotomy->execute(randomDude);
+    formRobotomy->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormExecutedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormExecutedException:");
@@ -388,16 +388,16 @@ void IntegrationTests::testAlreadyExecuteForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->beSigned(randomDude);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->beSigned(randomDude);
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->execute(randomDude);
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    formShrunbbery->execute(randomDude);
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->execute(randomDude);
+    formShrunbbery->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormExecutedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormExecutedException:");
@@ -417,10 +417,10 @@ void IntegrationTests::testExecuteWithoutSigningForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(GREEN, "Created form:");
-    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
-    FormPrinter::print(std::cout, *form_pardon);
+    std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *formPardon);
 
-    form_pardon->execute(randomDude);
+    formPardon->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormNotSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
@@ -438,10 +438,10 @@ void IntegrationTests::testExecuteWithoutSigningForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(YELLOW, "Created form:");
-    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
-    FormPrinter::print(std::cout, *form_robotomy);
+    std::auto_ptr<AForm> formRobotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *formRobotomy);
 
-    form_robotomy->execute(randomDude);
+    formRobotomy->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormNotSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
@@ -459,10 +459,10 @@ void IntegrationTests::testExecuteWithoutSigningForm() {
     BureaucratPrinter::print(std::cout, randomDude);
 
     StreamWriter::print(PURPLE, "Created form:");
-    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
-    FormPrinter::print(std::cout, *form_shrunbbery);
+    std::auto_ptr<AForm> formShrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *formShrunbbery);
 
-    form_shrunbbery->execute(randomDude);
+    formShrunbbery->execute(randomDude);
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormNotSignedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
