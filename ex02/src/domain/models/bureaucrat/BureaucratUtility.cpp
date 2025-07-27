@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:58 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 21:19:01 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 22:06:59 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <iostream>
 #include <string>
 
-std::string Bureaucrat::getName() const {
+const std::string Bureaucrat::getName() const throw() {
   return this->m_name;
 }
 
-int Bureaucrat::getGrade() const {
+int Bureaucrat::getGrade() const throw() {
   return this->m_grade;
 }
 

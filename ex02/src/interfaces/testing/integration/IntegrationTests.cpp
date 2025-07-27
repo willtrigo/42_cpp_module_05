@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:44:12 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 12:08:44 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void IntegrationTests::createTestSuite() {
   IntegrationTests::testAlreadySignedForm();
   IntegrationTests::testInsufficientGradeToExecuteForm();
   IntegrationTests::testAlreadyExecuteForm();
+  IntegrationTests::testExecuteWithoutSigningForm();
 }
 
 void IntegrationTests::testSuccessfulSignedExecuteForm() {
@@ -323,7 +324,7 @@ void IntegrationTests::testInsufficientGradeToExecuteForm() {
 }
 
 void IntegrationTests::testAlreadyExecuteForm() {
-  TestRunner::PrintSection(PURPLE, PURPLE, true, "Integration Already Signed Form");
+  TestRunner::PrintSection(PURPLE, PURPLE, true, "Integration Already Executed Form");
 
   try {
     StreamWriter::print(CYAN, "Created bureaucrat:");
@@ -400,6 +401,71 @@ void IntegrationTests::testAlreadyExecuteForm() {
     StreamWriter::print(RED, "Error: should have throw exception");
   } catch (const AForm::AFormExecutedException& e) {
     StreamWriter::print(ORANGE, "Correctly caught AFormExecutedException:");
+    StreamWriter::print(RED, e.what());
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
+  }
+}
+
+void IntegrationTests::testExecuteWithoutSigningForm() {
+  TestRunner::PrintSection(PURPLE, PURPLE, true, "Integration Executed Without Signing Form");
+
+  try {
+    StreamWriter::print(CYAN, "Created bureaucrat:");
+    Bureaucrat randomDude("Random Dude", 5);
+    BureaucratPrinter::print(std::cout, randomDude);
+
+    StreamWriter::print(GREEN, "Created form:");
+    std::auto_ptr<AForm> form_pardon(new PresidentialPardonForm("Will Trigo"));
+    FormPrinter::print(std::cout, *form_pardon);
+
+    form_pardon->execute(randomDude);
+    StreamWriter::print(RED, "Error: should have throw exception");
+  } catch (const AForm::AFormNotSignedException& e) {
+    StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
+    StreamWriter::print(RED, e.what());
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
+  }
+
+  TestRunner::PrintSeparator();
+
+  try {
+    StreamWriter::print(CYAN, "Created bureaucrat:");
+    Bureaucrat randomDude("Random Dude", 45);
+    BureaucratPrinter::print(std::cout, randomDude);
+
+    StreamWriter::print(YELLOW, "Created form:");
+    std::auto_ptr<AForm> form_robotomy(new RobotomyRequestForm("Staff"));
+    FormPrinter::print(std::cout, *form_robotomy);
+
+    form_robotomy->execute(randomDude);
+    StreamWriter::print(RED, "Error: should have throw exception");
+  } catch (const AForm::AFormNotSignedException& e) {
+    StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
+    StreamWriter::print(RED, e.what());
+  } catch (const std::exception& e) {
+    StreamWriter::print(ORANGE, "Caught unexpected exception:");
+    StreamWriter::print(RED, e.what());
+  }
+
+  TestRunner::PrintSeparator();
+
+  try {
+    StreamWriter::print(CYAN, "Created bureaucrat:");
+    Bureaucrat randomDude("Random Dude", 137);
+    BureaucratPrinter::print(std::cout, randomDude);
+
+    StreamWriter::print(PURPLE, "Created form:");
+    std::auto_ptr<AForm> form_shrunbbery(new ShrubberyCreationForm("home"));
+    FormPrinter::print(std::cout, *form_shrunbbery);
+
+    form_shrunbbery->execute(randomDude);
+    StreamWriter::print(RED, "Error: should have throw exception");
+  } catch (const AForm::AFormNotSignedException& e) {
+    StreamWriter::print(ORANGE, "Correctly caught AFormNotSignedException:");
     StreamWriter::print(RED, e.what());
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");

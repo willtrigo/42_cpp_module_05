@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 23:04:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/20 00:59:59 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 11:52:04 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ void ExecuteFormCommand::execute() const {
 void ExecuteFormCommand::validateExecutionPreconditions() const {
   if (!this->m_form->isValidForExecution()) {
     if (!this->m_form->isSigned()) {
+      StreamWriter::print(RED, this->m_executor->getName() + " couldn't execute " + this->m_form->getName() + " because:");
       throw AForm::AFormNotSignedException();
     }
     if (this->m_form->isExecuted()) {
+      StreamWriter::print(RED, this->m_executor->getName() + " couldn't execute " + this->m_form->getName() + " because:");
       throw AForm::AFormExecutedException();
     }
   }
 
   if (!this->m_form->canBeExecutedBy(*this->m_executor)) {
-      throw AForm::GradeTooLowException();
+    StreamWriter::print(RED, this->m_executor->getName() + " couldn't execute " + this->m_form->getName() + " because:");
+    throw AForm::GradeTooLowException();
   }
 }
 

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 17:58:09 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 19:43:56 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/27 12:08:26 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class IntegrationTests {
   static void testAlreadySignedForm();
   static void testInsufficientGradeToExecuteForm();
   static void testAlreadyExecuteForm();
+  static void testExecuteWithoutSigningForm();
 };
 
 #endif // INTEGRATION_TESTS_HPP

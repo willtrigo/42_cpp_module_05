@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 21:11:01 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/26 22:06:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class Bureaucrat {
 
   Bureaucrat& operator=(const Bureaucrat& other);
 
-  std::string getName() const;
-  int getGrade() const;
+  const std::string getName() const throw();
+  int getGrade() const throw();
 
   void incrementGrade();
   void decrementGrade();
