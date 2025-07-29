@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 21:51:35 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 19:20:06 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:23:23 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:36:04 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/Bureaucrat.hpp"
+#include "domain/models/bureaucrat/Bureaucrat.hpp"
+#include "infrastructure/io/BureaucratPrinter.hpp"
 #include <iostream>
-#include <ostream>
 #include <string>
 
 std::string Bureaucrat::getName() const {
@@ -24,12 +24,12 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-  validateGrade(this->m_grade - GRADE_SHIFT_AMOUNT);
+  validateGrade(this->m_grade - 1);
   --this->m_grade;
 }
 
 void Bureaucrat::decrementGrade() {
-  validateGrade(this->m_grade + GRADE_SHIFT_AMOUNT);
+  validateGrade(this->m_grade + 1);
   ++this->m_grade;
 }
 
@@ -45,5 +45,5 @@ void Bureaucrat::validateGrade(int grade) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-  return os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+  return BureaucratPrinter::print(os, bureaucrat);
 }

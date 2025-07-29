@@ -5,18 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 21:51:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/04 19:07:46 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:23:11 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:35:37 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/Bureaucrat.hpp"
-
-const std::string Bureaucrat::DEFAULT_NAME = "Unnamed Bureaucrat";
-
-Bureaucrat::Bureaucrat()
-  : m_name(DEFAULT_NAME),
-    m_grade(DEFAULT_GRADE) {}
+#include "domain/models/bureaucrat/Bureaucrat.hpp"
+#include <string>
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
   : m_name(name),
@@ -28,6 +23,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
   : m_name(other.m_name),
     m_grade(other.m_grade) {}
 
+Bureaucrat::~Bureaucrat() {}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   if (this != &other) {
     const_cast<std::string&>(this->m_name) = other.m_name;
@@ -35,5 +32,3 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   }
   return *this;
 }
-
-Bureaucrat::~Bureaucrat() {}

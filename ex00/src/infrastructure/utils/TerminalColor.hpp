@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:17:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/02 16:17:47 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:27:11 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:37:11 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ enum Style {
 
 class TerminalColor {
  public:
-  ~TerminalColor();
-
-  static TerminalColor& getInstance();
-
-  std::string setColor(StrColor strColor, const std::string& str) const;
-  std::string setColor(BgColor bgColor, const std::string& str) const;
-  std::string setColor(Style style, const std::string& str) const;
-  std::string setColor(BgColor bgColor, StrColor strColor, const std::string& str) const;
-  std::string setColor(BgColor bgColor, Style style, const std::string& str) const;
-  std::string setColor(StrColor strColor, Style style, const std::string& str) const;
-  std::string setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str) const;
+  static std::string getColor(StrColor strColor);
+  static std::string getColor(BgColor bgColor);
+  static std::string getColor(Style style);
+  static std::string setColor(StrColor strColor, const std::string& str);
+  static std::string setColor(BgColor bgColor, const std::string& str);
+  static std::string setColor(Style style, const std::string& str);
+  static std::string setColor(BgColor bgColor, StrColor strColor, const std::string& str);
+  static std::string setColor(BgColor bgColor, Style style, const std::string& str);
+  static std::string setColor(StrColor strColor, Style style, const std::string& str);
+  static std::string setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str);
 
  private:
-  TerminalColor();
   TerminalColor(const TerminalColor&);
+  ~TerminalColor();
+
   TerminalColor& operator=(const TerminalColor&);
 
   static const std::pair<StrColor, std::string> STR_COLOR_MAP[];

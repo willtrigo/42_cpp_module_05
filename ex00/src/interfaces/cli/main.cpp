@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:07:39 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:37:37 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:27:49 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:38:30 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test/TestSuite.hpp"
+#include "interfaces/testing/TestRunner.hpp"
 #include <cstdlib>
 
 int main() {
-  runTests();
+  TestRunner::runAllTests();
   return EXIT_SUCCESS;
 }
-

@@ -5,14 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:17:24 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/02 16:17:55 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:27:23 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:37:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils/TerminalColor.hpp"
+#include "infrastructure/utils/TerminalColor.hpp"
+#include <string>
 
-std::string TerminalColor::setColor(StrColor strColor, const std::string& str) const {
+std::string TerminalColor::getColor(StrColor strColor) {
+  return STR_COLOR_MAP[strColor].second;
+}
+
+std::string TerminalColor::getColor(BgColor bgColor) {
+  return BG_COLOR_MAP[bgColor].second;
+}
+
+std::string TerminalColor::getColor(Style style) {
+  return STYLE_MAP[style].second;
+}
+
+std::string TerminalColor::setColor(StrColor strColor, const std::string& str) {
   std::string result;
 
   result += STR_COLOR_MAP[strColor].second;
@@ -21,7 +34,7 @@ std::string TerminalColor::setColor(StrColor strColor, const std::string& str) c
   return result;
 }
 
-std::string TerminalColor::setColor(BgColor bgColor, const std::string& str) const {
+std::string TerminalColor::setColor(BgColor bgColor, const std::string& str) {
   std::string result;
 
   result += BG_COLOR_MAP[bgColor].second;
@@ -30,7 +43,7 @@ std::string TerminalColor::setColor(BgColor bgColor, const std::string& str) con
   return result;
 }
 
-std::string TerminalColor::setColor(Style style, const std::string& str) const {
+std::string TerminalColor::setColor(Style style, const std::string& str) {
   std::string result;
 
   result += STYLE_MAP[style].second;
@@ -39,7 +52,7 @@ std::string TerminalColor::setColor(Style style, const std::string& str) const {
   return result;
 }
 
-std::string TerminalColor::setColor(BgColor bgColor, StrColor strColor, const std::string& str) const {
+std::string TerminalColor::setColor(BgColor bgColor, StrColor strColor, const std::string& str) {
   std::string result;
 
   result += BG_COLOR_MAP[bgColor].second;
@@ -49,7 +62,7 @@ std::string TerminalColor::setColor(BgColor bgColor, StrColor strColor, const st
   return result;
 }
 
-std::string TerminalColor::setColor(StrColor strColor, Style style, const std::string& str) const {
+std::string TerminalColor::setColor(StrColor strColor, Style style, const std::string& str) {
   std::string result;
 
   result += STYLE_MAP[style].second;
@@ -59,7 +72,7 @@ std::string TerminalColor::setColor(StrColor strColor, Style style, const std::s
   return result;
 }
 
-std::string TerminalColor::setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str) const {
+std::string TerminalColor::setColor(BgColor bgColor, StrColor strColor, Style style, const std::string& str) {
   std::string result;
 
   result += STYLE_MAP[style].second;

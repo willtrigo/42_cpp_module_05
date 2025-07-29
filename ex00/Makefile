@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 15:48:34 by dande-je          #+#    #+#              #
-#    Updated: 2025/06/29 14:51:21 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/29 14:31:27 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,21 @@ RESET                           := \033[0m
 #******************************************************************************#
 
 SRCS_DIR                        := src/
-SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
-SRCS_CORE_DIR                   := $(SRCS_DIR)core/
-SRCS_EXCEPTIONS_DIR             := $(SRCS_CORE_DIR)exceptions/
-SRCS_TEST_DIR                   := $(SRCS_DIR)test/
-SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
+
+SRCS_DOMAIN_DIR                 := $(SRCS_DIR)domain/
+SRCS_MODELS_DIR                 := $(SRCS_DOMAIN_DIR)models/
+SRCS_BUREAUCRAT_DIR             := $(SRCS_MODELS_DIR)bureaucrat/
+SRCS_BUREAUCRAT_EXCEPTIONS_DIR  := $(SRCS_BUREAUCRAT_DIR)exceptions/
+
+SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
+SRCS_IO_DIR                     := $(SRCS_INFRASTRUCTURE_DIR)io/
+SRCS_UTILS_DIR                  := $(SRCS_INFRASTRUCTURE_DIR)utils/
+
+SRCS_INTERFACES_DIR             := $(SRCS_DIR)interfaces/
+SRCS_CLI_DIR                    := $(SRCS_INTERFACES_DIR)cli/
+SRCS_TESTING_DIR                := $(SRCS_INTERFACES_DIR)testing/
+SRCS_TESTING_DOMAIN_DIR         := $(SRCS_TESTING_DIR)domain/
+
 INCS                            := src/
 BIN_DIR                         := bin/
 BUILD_DIR                       := build/
@@ -51,15 +61,18 @@ SLEEP                           := sleep 0.01
 NAME_OUTPUT                     = bureaucrat
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
-SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_CORE_DIR), Bureaucrat.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_EXCEPTIONS_DIR), GradeException.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_TEST_DIR), TestEx00.cpp \
-								   TestHelpers.cpp \
-								   TestSuite.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
+
+SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), BureaucratPrinter.cpp \
+								   StreamWriter.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp \
 								   TerminalColorUtility.cpp)
+
+SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestRunner.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DOMAIN_DIR), BureaucratTests.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 

@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 16:17:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/02 16:17:38 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:27:02 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:37:21 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TerminalColor.hpp"
+#include "infrastructure/utils/TerminalColor.hpp"
 #include <stdexcept>
-#include <string>
 #include <utility>
 
 const std::pair<StrColor, std::string> TerminalColor::STR_COLOR_MAP[] = {
@@ -47,15 +46,10 @@ const std::pair<Style, std::string> TerminalColor::STYLE_MAP[] = {
   std::make_pair(UNDERLINE, "\033[4m"),
 };
 
-TerminalColor::TerminalColor() {}
-
-TerminalColor& TerminalColor::getInstance() {
-  static TerminalColor instance;
-  return instance;
-}
-
-TerminalColor::TerminalColor(const TerminalColor&) {
-  throw std::runtime_error("Copying of TerminalColor is not allowed");
-}
+TerminalColor::TerminalColor(const TerminalColor&) {}
 
 TerminalColor::~TerminalColor() {}
+
+TerminalColor& TerminalColor::operator=(const TerminalColor&) {
+  throw std::runtime_error("Copying of TerminalColor is not allowed");
+}

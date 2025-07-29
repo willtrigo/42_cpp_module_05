@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TestHelpers.hpp                                    :+:      :+:    :+:   */
+/*   BureaucratException.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 14:27:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/06/29 14:35:21 by dande-je         ###   ########.fr       */
+/*   Created: 2025/07/29 14:23:49 by dande-je          #+#    #+#             */
+/*   Updated: 2025/07/29 14:36:19 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTSUITE_HPP
-#define TESTSUITE_HPP
+#include "domain/models/bureaucrat/Bureaucrat.hpp"
 
-#include "utils/TerminalColor.hpp"
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+  return "Grade is too high (minimum grade is 1)";
+}
 
-static const int TEST_LINE_SIZE = 80;
-
-void testHelperLog(StrColor strColor, const std::string str);
-void testHelperPrintSection(const std::string& title);
-
-#endif // TESTSUITE_HPP
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+  return "Grade is too low (maximum grade is 150)";
+}
