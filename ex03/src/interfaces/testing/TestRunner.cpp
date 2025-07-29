@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:37:15 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/29 16:06:01 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/29 18:44:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "infrastructure/utils/TerminalColor.hpp"
 #include "interfaces/testing/domain/BureaucratTests.hpp"
 #include "interfaces/testing/domain/FormTests.hpp"
+#include "interfaces/testing/domain/InternTests.hpp"
 #include "interfaces/testing/integration/IntegrationTests.hpp"
 #include <stdexcept>
 
@@ -31,6 +32,7 @@ void TestRunner::runAllTests() {
 
   BureaucratTests::createTestSuite();
   FormTests::createTestSuite();
+  InternTests::createTestSuite();
   IntegrationTests::createTestSuite();
 
   TestRunner::PrintSection(GREEN, RESET, true, "ALL TESTS COMPLETED");

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:21:54 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/29 16:00:43 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:36:14 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
 #include <exception>
 #include <string>
+
+enum Forms {
+  SHRUBBERY_CREATION,
+  ROBOTOMY_REQUEST,
+  PRESIDENTIAL_PARDON,
+  TOTAL_FORMS
+};
 
 class AForm {
  public:

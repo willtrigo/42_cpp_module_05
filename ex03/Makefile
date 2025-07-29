@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/29 15:02:49 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/29 15:29:39 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/29 18:58:34 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ SRCS_FORM_REQUESTS_DIR          := $(SRCS_FORM_DIR)requests/
 SRCS_PRESIDENTIAL_DIR           := $(SRCS_FORM_REQUESTS_DIR)presidential/
 SRCS_ROBOTOMY_DIR               := $(SRCS_FORM_REQUESTS_DIR)robotomy/
 SRCS_FORM_EXCEPTIONS_DIR        := $(SRCS_FORM_DIR)exceptions/
+SRCS_INTERN_DIR                 := $(SRCS_MODELS_DIR)intern/
+SRCS_INTERN_EXCEPTIONS_DIR      := $(SRCS_INTERN_DIR)exceptions/
 
 SRCS_INFRASTRUCTURE_DIR         := $(SRCS_DIR)infrastructure/
 SRCS_FILE_DIR                   := $(SRCS_INFRASTRUCTURE_DIR)file/
@@ -90,6 +92,9 @@ SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), AFor
 SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_INTERN_DIR), Intern.cpp \
+								   InternUtility.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_INTERN_EXCEPTIONS_DIR), InternException.cpp)
 
 SRCS_FILES                      += $(addprefix $(SRCS_FILE_DIR), FileWriter.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_IO_DIR), BureaucratPrinter.cpp \
@@ -101,7 +106,8 @@ SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.
 SRCS_FILES                      += $(addprefix $(SRCS_CLI_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DIR), TestRunner.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TESTING_DOMAIN_DIR), BureaucratTests.cpp \
-								   FormTests.cpp)
+								   FormTests.cpp \
+								   InternTests.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_TESTING_INTEGRATION_DIR), IntegrationTests.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
