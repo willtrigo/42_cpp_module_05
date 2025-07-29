@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/06 14:31:32 by dande-je          #+#    #+#              #
-#    Updated: 2025/07/24 21:22:36 by dande-je         ###   ########.fr        #
+#    Updated: 2025/07/29 15:28:25 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ SRCS_FILES                      += $(addprefix $(SRCS_PRESIDENTIAL_DIR), Preside
 								   PresidentialPardonFormUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_ROBOTOMY_DIR), RobotomyRequestForm.cpp \
 								   RobotomyRequestFormUtility.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), FormException.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_FORM_EXCEPTIONS_DIR), AFormException.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_DIR), Bureaucrat.cpp \
 								   BureaucratUtility.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_BUREAUCRAT_EXCEPTIONS_DIR), BureaucratException.cpp)
