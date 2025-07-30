@@ -6,11 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:03:58 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/26 22:06:59 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/30 16:34:48 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "domain/models/bureaucrat/Bureaucrat.hpp"
+#include "domain/models/form/AForm.hpp"
 #include "infrastructure/io/BureaucratPrinter.hpp"
 #include <iostream>
 #include <string>
@@ -31,6 +32,10 @@ void Bureaucrat::incrementGrade() {
 void Bureaucrat::decrementGrade() {
   validateGrade(this->m_grade + 1);
   ++this->m_grade;
+}
+
+void Bureaucrat::signForm(AForm& form) {
+  form.beSigned(*this);
 }
 
 void Bureaucrat::validateGrade(int grade) const {

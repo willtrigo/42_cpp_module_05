@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:16:27 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/29 15:56:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/30 16:36:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <exception>
 #include <string>
+
+class AForm;
 
 class Bureaucrat {
  public:
@@ -39,6 +41,8 @@ class Bureaucrat {
 
   void incrementGrade();
   void decrementGrade();
+
+  void signForm(AForm& form);
 
  private:
   const std::string m_name;

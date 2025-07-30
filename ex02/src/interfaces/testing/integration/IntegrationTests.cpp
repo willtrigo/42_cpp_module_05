@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 20:20:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/27 14:47:48 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/30 16:40:05 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     std::auto_ptr<AForm> formPardon(new PresidentialPardonForm("Will Trigo"));
     FormPrinter::print(std::cout, *formPardon);
 
-    formPardon->beSigned(boss);
+    boss.signForm(*formPardon);
     FormPrinter::print(std::cout, *formPardon);
 
     formPardon->execute(boss);

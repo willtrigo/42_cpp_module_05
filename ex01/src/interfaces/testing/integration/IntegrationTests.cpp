@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 20:16:18 by dande-je          #+#    #+#             */
-/*   Updated: 2025/07/27 15:21:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/07/30 16:31:24 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void IntegrationTests::testSuccessfulSignedExecuteForm() {
     Form importantForm("Important Document", 1, 42);
     FormPrinter::print(std::cout, importantForm);
 
-    importantForm.beSigned(boss);
+    boss.signForm(importantForm);
     FormPrinter::print(std::cout, importantForm);
   } catch (const std::exception& e) {
     StreamWriter::print(ORANGE, "Caught unexpected exception:");
